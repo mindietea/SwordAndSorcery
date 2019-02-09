@@ -9,6 +9,7 @@ TagManager:
   - FxTemporaire
   - TeleportIgnore
   - PlayerWeapon
+  - Enemy
   layers:
   - Default
   - TransparentFX
