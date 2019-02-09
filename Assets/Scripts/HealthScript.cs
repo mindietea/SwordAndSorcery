@@ -22,24 +22,20 @@ public class HealthScript : MonoBehaviour
     // The List of the names of tags that should be able to damage this gameObject
     public List<string> damageTags;
 
+    // Used to affect hit indicator
+    private Animator anim;
+    private int damageHash = Animator.StringToHash("Damage");
+
     void Start()
     {
         currentHealth = maxHealth;
         lastDamaged = 9999.0f;
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         lastDamaged += Time.deltaTime;
-
-        // Hit indicator
-        if(lastDamaged < damageCooldown)
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.red;
-        } else
-        {
-            gameObject.GetComponent<Renderer>().material.color = Color.white;
-        }
     }
 
     public void InflictDamage(int dmg)
@@ -70,9 +66,16 @@ public class HealthScript : MonoBehaviour
             DamageScript dmgScript = other.GetComponent<DamageScript>();
             if (dmgScript != null)
             {
+                // Take Damage
                 Debug.Log("Hit");
                 InflictDamage(dmgScript.damage);
                 lastDamaged = 0.0f;
+                
+                // Trigger damaged animation
+                if(anim != null)
+                {
+                    anim.SetTrigger(damageHash);
+                }
             }
             else
             {
