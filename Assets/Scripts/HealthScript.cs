@@ -54,18 +54,29 @@ public class HealthScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        CheckDamage(collision.gameObject);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        CheckDamage(other.gameObject);
+    }
+
+    private void CheckDamage(GameObject other)
+    {
         // Deals damage if it is one of the damageTags
-        if (lastDamaged >= damageCooldown && damageTags.Contains(collision.gameObject.tag))
+        if (lastDamaged >= damageCooldown && damageTags.Contains(other.tag))
         {
-            DamageScript dmgScript = collision.gameObject.GetComponent<DamageScript>();
-            if(dmgScript != null)
+            DamageScript dmgScript = other.GetComponent<DamageScript>();
+            if (dmgScript != null)
             {
                 Debug.Log("Hit");
                 InflictDamage(dmgScript.damage);
                 lastDamaged = 0.0f;
-            } else
+            }
+            else
             {
-                Debug.LogWarning(gameObject.name + " should take damage, but the damaging object, " + collision.gameObject.name + " has no DamageScript attached to it.");
+                Debug.LogWarning(gameObject.name + " should take damage, but the damaging object, " + other.name + " has no DamageScript attached to it.");
             }
         }
     }
