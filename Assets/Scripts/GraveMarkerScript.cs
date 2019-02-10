@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class GraveMarkerScript : MonoBehaviour
 {
+    // Range at which to trigger enemy spawns
+    public float range = 7.0f;
+
+    public GameObject monster;
+    public bool spawned = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = transform.position;
-        sphere.transform.localScale = new Vector3(4.0f, 4.0f, 4.0f);
-
-        GameObject monster = SpawnMonster();
-        monster.transform.position += new Vector3(0, 2.0f, 0);
+        spawned = false;
     }
 
     GameObject SpawnMonster() {
@@ -26,6 +27,12 @@ public class GraveMarkerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(!spawned && GameManager.GetDistanceToPlayer(gameObject) < range)
+        {
+            spawned = true;
+            GameObject spawn = Instantiate(monster);
+            spawn.transform.position = transform.position + transform.forward * 2;
+            spawn.transform.position = new Vector3(spawn.transform.position.x, -0.5f, spawn.transform.position.z);
+        }
     }
 }
