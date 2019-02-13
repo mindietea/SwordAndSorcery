@@ -14,20 +14,22 @@ public class FireProjectileScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift)) // TODO change to button on VR controller
-        {
-            Rigidbody fireball;
-            Vector3 adjustment = Vector3.up;
-            // Instantiate fireball at the spawnpoint position, adjusted by a Vector3
-            fireball = Instantiate(projectile, spawnpoint.position + adjustment,
-                spawnpoint.rotation);
-            fireball.velocity = spawnpoint.TransformDirection(Vector3.forward * speed);
-        }
+
+    }
+
+    void OnTriggerEvent()
+    {
+        Rigidbody fireball;
+        Vector3 adjustment = Vector3.forward;
+        // Instantiate fireball at the spawnpoint position, adjusted by a Vector3
+        fireball = Instantiate(projectile, spawnpoint.position + adjustment,
+            spawnpoint.rotation);
+        fireball.velocity = spawnpoint.TransformDirection(Vector3.forward * speed);
     }
 }
