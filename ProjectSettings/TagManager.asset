@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ExcludeTeleport
+  - projectile
+  - FxTemporaire
+  - TeleportIgnore
+  - PlayerWeapon
+  - Enemy
   layers:
   - Default
   - TransparentFX
