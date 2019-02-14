@@ -20,7 +20,15 @@ public class RabbitScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(!anim.GetBool("Dead") && GameManager.GetDistanceToPlayer(gameObject) <= explosionRange)
+        {
+            anim.SetBool("Dead", true);
+            Instantiate(explosion, gameObject.transform.position + Vector3.up, Quaternion.identity);
+        }
+    }
 
+    private void FixedUpdate()
+    {
         if (!anim.GetBool("Dead"))
         {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x,
@@ -28,12 +36,6 @@ public class RabbitScript : MonoBehaviour
                 transform.eulerAngles.z);
 
             GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * runSpeed);
-
-            if(GameManager.GetDistanceToPlayer(gameObject) <= explosionRange)
-            {
-                anim.SetBool("Dead", true);
-                Instantiate(explosion, gameObject.transform.position + Vector3.up, Quaternion.identity);
-            }
         }
     }
 }
