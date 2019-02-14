@@ -6410,12 +6410,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 238021460498388768, guid: 864a958e4ad72874997aaf0efc24fbd6,
+    - target: {fileID: 238021460498388773, guid: 864a958e4ad72874997aaf0efc24fbd6,
         type: 3}
-      propertyPath: monster
-      value: 
-      objectReference: {fileID: 7680383326792459711, guid: 0b7064df05781e04ea646de1e9b4586a,
-        type: 3}
+      propertyPath: m_Name
+      value: GraveMarker
+      objectReference: {fileID: 0}
     - target: {fileID: 238021460498388769, guid: 864a958e4ad72874997aaf0efc24fbd6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6471,11 +6470,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 238021460498388773, guid: 864a958e4ad72874997aaf0efc24fbd6,
+    - target: {fileID: 238021460498388768, guid: 864a958e4ad72874997aaf0efc24fbd6,
         type: 3}
-      propertyPath: m_Name
-      value: GraveMarker
-      objectReference: {fileID: 0}
+      propertyPath: monster
+      value: 
+      objectReference: {fileID: 7680383326792459711, guid: 0b7064df05781e04ea646de1e9b4586a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 864a958e4ad72874997aaf0efc24fbd6, type: 3}
 --- !u!1001 &1981412087679997237
@@ -6485,6 +6485,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 995702954}
     m_Modifications:
+    - target: {fileID: 1981412087888367211, guid: 21eaa5af11266674588709f47b2093ab,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1981412087888367211, guid: 21eaa5af11266674588709f47b2093ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1981412087888367210, guid: 21eaa5af11266674588709f47b2093ab,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6539,16 +6549,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1981412087888367211, guid: 21eaa5af11266674588709f47b2093ab,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1981412087888367211, guid: 21eaa5af11266674588709f47b2093ab,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21eaa5af11266674588709f47b2093ab, type: 3}

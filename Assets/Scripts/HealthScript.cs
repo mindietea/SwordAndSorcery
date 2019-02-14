@@ -1,6 +1,4 @@
-﻿namespace VRTK
-{
-	using System.Collections;
+﻿	using System.Collections;
 	using System.Collections.Generic;
 	using UnityEngine;
 	using UnityEngine.UI;
@@ -43,12 +41,12 @@
 		void Update()
 		{
 			lastDamaged += Time.deltaTime;
-			UpdateHealth();
+			// UpdateHealth();
 		}
 
-		void UpdateHealth(){
-			healthText.text = "Health: " + currentHealth;
-		}
+		// void UpdateHealth(){
+		// 	healthText.text = "Health: " + currentHealth;
+		// }
 
 		public void InflictDamage(int dmg)
 		{
@@ -57,17 +55,19 @@
 
 		public void HealDamage(int heal)
 		{
-			currentHealth = Mathf.Min(maxHealth, currentHealth += heal);
+			//currentHealth = Mathf.Min(maxHealth, currentHealth += heal);
 		}
 
 		private void OnCollisionEnter(Collision collision)
 		{
 			CheckDamage(collision.gameObject);
+			Debug.Log("Collided");
 		}
 
 		private void OnTriggerEnter(Collider other)
 		{
 			CheckDamage(other.gameObject);
+			Debug.Log("Triggered");
 		}
 
 		private void CheckDamage(GameObject other)
@@ -96,4 +96,3 @@
 			}
 		}
 	}
-}
