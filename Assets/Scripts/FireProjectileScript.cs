@@ -9,12 +9,21 @@ public class FireProjectileScript : MonoBehaviour
 {
     public Rigidbody projectile;
     public Transform spawnpoint;
-    public int speed;
+    public int speed = 10;
 
-    // Start is called before the first frame update
-    void Start()
+    private SteamVR_TrackedObject trackedObj;
+    private SteamVR_Controller.Device Controller
     {
+        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+    }
 
+    void Awake()
+    {
+        trackedObj = GetComponent<SteamVR_TrackedObject>();
+        if (Controller.GetHairTriggerDown())
+        {
+            FireProjectile();
+        }
     }
 
     // Update is called once per frame
@@ -23,7 +32,7 @@ public class FireProjectileScript : MonoBehaviour
 
     }
 
-    void OnTriggerEvent()
+    void FireProjectile()
     {
         Rigidbody fireball;
         Vector3 adjustment = Vector3.forward;
