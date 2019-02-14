@@ -20,25 +20,27 @@ public class FireProjectileScript : MonoBehaviour
     void Awake()
     {
         trackedObj = GetComponent<SteamVR_TrackedObject>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if (Controller.GetHairTriggerDown())
         {
             FireProjectile();
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void FireProjectile()
     {
         Rigidbody fireball;
-        Vector3 adjustment = Vector3.forward;
+        Vector3 pos_adjustment = Vector3.forward;
+        Quaternion spawn_rotation = Quaternion.Euler(spawnpoint.rotation.eulerAngles.x,
+            spawnpoint.rotation.eulerAngles.y,
+            spawnpoint.rotation.eulerAngles.z);
         // Instantiate fireball at the spawnpoint position, adjusted by a Vector3
-        fireball = Instantiate(projectile, spawnpoint.position + adjustment,
-            spawnpoint.rotation);
+        fireball = Instantiate(projectile, spawnpoint.position + pos_adjustment,
+            spawn_rotation);
         fireball.velocity = spawnpoint.TransformDirection(Vector3.forward * speed);
     }
 }
