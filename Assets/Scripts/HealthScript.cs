@@ -9,9 +9,6 @@
 	 */
 	public class HealthScript : MonoBehaviour
 	{
-
-		protected GameObject healthCanvas;
-		protected Text healthText;
 		// Health variables
 		public int currentHealth = 100;
 		public int maxHealth = 100;
@@ -33,11 +30,6 @@
 		void Update()
 		{
 			lastDamaged += Time.deltaTime;
-			UpdateHealth();
-		}
-
-		void UpdateHealth(){
-			healthText.text = "Health: " + currentHealth;
 		}
 
 	public void InflictDamage(int dmg)
@@ -85,3 +77,4 @@
 			}
 		}
 	}
+}
