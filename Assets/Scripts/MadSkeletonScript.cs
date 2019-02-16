@@ -10,6 +10,8 @@ public class MadSkeletonScript : MonoBehaviour
     public float attackRange = 2.0f;
     public float runSpeed = 10.0f;
 
+    public bool dead = false;
+
     // Animator
     private Animator anim;
 
@@ -17,6 +19,7 @@ public class MadSkeletonScript : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        dead = false;
     }
 
     // Update is called once per frame
@@ -25,6 +28,10 @@ public class MadSkeletonScript : MonoBehaviour
         anim.SetBool("PursuitRange", GameManager.GetDistanceToPlayer(gameObject) <= pursuitRange);
         anim.SetBool("AttackRange", GameManager.GetDistanceToPlayer(gameObject) <= attackRange);
         
+        if(!dead && GetComponent<HealthScript>().currentHealth <= 0) {
+            dead = true;
+            anim.SetBool("Death", true);
+        }
     }
 
     void FixedUpdate()
