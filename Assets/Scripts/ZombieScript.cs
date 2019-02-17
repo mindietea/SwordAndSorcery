@@ -6,7 +6,10 @@ public class ZombieScript : MonoBehaviour
 {
     public float pursuitRange = 10.0f;
     public float attackRange = 2.0f;
-    public float runSpeed = 10.0f;
+    public float runSpeed = 2.0f;
+    public float walkSpeed = 0.5f;
+    public float randomWalkTime = 0.1f;
+    private float time = 0.0f;
 
     private Animator anim;
 
@@ -19,19 +22,66 @@ public class ZombieScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        anim.SetBool("PursuitRange", GameManager.GetDistanceToPlayer(gameObject) <= pursuitRange);
         anim.SetBool("AttackRange", GameManager.GetDistanceToPlayer(gameObject) <= attackRange);
     }
 
     void FixedUpdate()
     {
-        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Run"))
+        time += Time.deltaTime;
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("walk_in_place"))
         {
-            // Rotate to look at player NOT allowing X rotation
-            transform.LookAt(GameManager.GetPlayer().transform);
-            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
+            if (GameManager.GetDistanceToPlayer(gameObject) <= pursuitRange)
+            {
+                // Rotate to look at player NOT allowing X rotation
+                transform.LookAt(GameManager.GetPlayer().transform);
+                transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
 
-            GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * runSpeed);
+                GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * runSpeed);
+            }
+            else
+            {
+                // At random times, look at another zombie (creates hordes)
+                if(Random.value > 0.998)
+                {
+                    transform.LookAt(FindZombie());
+                    transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
+                }
+
+                // At even intervals of time, randomly change direction
+                if (time >= randomWalkTime)
+                {
+                    time -= randomWalkTime;
+                    transform.eulerAngles = new Vector3(transform.eulerAngles.x,
+                        transform.eulerAngles.y + Random.Range(-10.0f, 10.0f),
+                        transform.eulerAngles.z);
+                }
+
+                GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * walkSpeed);
+            }
         }
+    }
+     
+    // Finds the zombie which is the furthest away, but within maxDist and alive
+    Transform FindZombie()
+    {
+
+        float maxDist = 40.0f;
+        float furthestDist = 0.0f;
+        Transform furthest = null;
+
+        foreach(GameObject zombie in GameObject.FindGameObjectsWithTag("Zombie"))
+        {
+            float curDist = Vector3.Distance(transform.position, zombie.transform.position);
+            if (curDist > furthestDist && curDist <  maxDist)
+            {
+                if(zombie.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("walk_in_place"))
+                {
+                    furthestDist = curDist;
+                    furthest = zombie.transform;
+                }
+            }
+        }
+
+        return furthest;
     }
 }
