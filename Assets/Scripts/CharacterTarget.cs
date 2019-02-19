@@ -4,8 +4,8 @@ using System.Collections;
 public class CharacterTarget : MonoBehaviour
 {
 	public GUISkin guiSkin; // choose a guiStyle (Important!)
-	public GameObject NPC;
-	public string text = "HP: "; // choose your name
+	public GameObject NPC; //choose the NPC name
+	public string text = "HP: "; //default text
 	protected HealthScript script;
 
 	public Color color = Color.white;   // choose font color/size
