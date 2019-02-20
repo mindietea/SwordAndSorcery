@@ -11,6 +11,7 @@ TagManager:
   - PlayerWeapon
   - Enemy
   - EnemyWeapon
+  - Poisoned
   layers:
   - Default
   - TransparentFX
