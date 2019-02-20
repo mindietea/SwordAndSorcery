@@ -6,9 +6,12 @@ public class ZombieScript : MonoBehaviour
 {
     public float pursuitRange = 10.0f;
     public float attackRange = 2.0f;
+    public float hordeRange = 40.0f;
     public float runSpeed = 2.0f;
     public float walkSpeed = 0.5f;
     public float randomWalkTime = 0.1f;
+    public bool isInPursuit = false;
+    public GameObject following = null;
     private float time = 0.0f;
 
     private Animator anim;
@@ -32,16 +35,47 @@ public class ZombieScript : MonoBehaviour
         {
             if (GameManager.GetDistanceToPlayer(gameObject) <= pursuitRange)
             {
+                if (!isInPursuit)
+                {
+                    isInPursuit = true;
+                    AlertHorde();
+                }
+
                 // Rotate to look at player NOT allowing X rotation
                 transform.LookAt(GameManager.GetPlayer().transform);
                 transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
 
                 GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * runSpeed);
             }
+            else if(following != null)
+            {
+                if (isInPursuit)
+                {
+                    isInPursuit = false;
+                }
+
+                if (following.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("walk_in_place") && 
+                    following.GetComponent<ZombieScript>().isInPursuit)
+                {
+                    transform.LookAt(following.transform);
+                    transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
+
+                    GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * runSpeed);
+                }
+                else
+                {
+                    following = null;
+                }
+            }
             else
             {
+                if (isInPursuit)
+                {
+                    isInPursuit = false;
+                }
+
                 // At random times, look at another zombie (creates hordes)
-                if(Random.value > 0.998)
+                if (Random.value > 0.998)
                 {
                     transform.LookAt(FindZombie());
                     transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
@@ -61,27 +95,40 @@ public class ZombieScript : MonoBehaviour
         }
     }
      
-    // Finds the zombie which is the furthest away, but within maxDist and alive
+    // Finds the transform of the zombie which is the furthest away, but within hordeRange and alive
     Transform FindZombie()
     {
-
-        float maxDist = 40.0f;
         float furthestDist = 0.0f;
         Transform furthest = null;
 
         foreach(GameObject zombie in GameObject.FindGameObjectsWithTag("Zombie"))
         {
-            float curDist = Vector3.Distance(transform.position, zombie.transform.position);
-            if (curDist > furthestDist && curDist <  maxDist)
+            float dist = Vector3.Distance(transform.position, zombie.transform.position);
+            if (dist > furthestDist && dist < hordeRange)
             {
                 if(zombie.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("walk_in_place"))
                 {
-                    furthestDist = curDist;
+                    furthestDist = dist;
                     furthest = zombie.transform;
                 }
             }
         }
 
         return furthest;
+    }
+
+    // Makes other nearby zombies follow this one
+    void AlertHorde()
+    {
+        foreach (GameObject zombie in GameObject.FindGameObjectsWithTag("Zombie"))
+        {
+            float dist = Vector3.Distance(transform.position, zombie.transform.position);
+            if (dist < hordeRange &&
+                zombie.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("walk_in_place") &&
+                zombie.GetComponent<ZombieScript>().following == null)
+            {
+                zombie.GetComponent<ZombieScript>().following = gameObject;
+            }
+        }
     }
 }
