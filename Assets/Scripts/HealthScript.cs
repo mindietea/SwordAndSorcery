@@ -68,8 +68,13 @@
 				// Debug.Log("Printing: " + collision.gameObject);
 				CheckDamage(collision.gameObject);
 			}
-		}
-	}
+
+            if(contact.otherCollider.name == "Zombie" || contact.thisCollider.name == "Zombie")
+            {
+                CheckDamage(collision.gameObject);
+            }
+        }
+    }
 
 	// private void OnTriggerEnter(Collider other)
 	// {
@@ -81,8 +86,8 @@
 		// Deals damage if it is one of the damageTags
 		// Debug.Log(this.gameObject.name + " : " + other.gameObject.name + " " + other.tag);
 		if (lastDamaged >= damageCooldown && damageTags.Contains(other.tag))
-		{
-			DamageScript dmgScript = other.GetComponent<DamageScript>();
+        {
+            DamageScript dmgScript = other.GetComponent<DamageScript>();
 			if (dmgScript != null)
 			{
 				// Take Damage
