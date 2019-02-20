@@ -1264,6 +1264,7 @@ GameObject:
   - component: {fileID: 7680383326792459712}
   - component: {fileID: 7680383326792459715}
   - component: {fileID: 5852187390108040831}
+  - component: {fileID: 7829115644212974674}
   m_Layer: 0
   m_Name: MadSkeletonEnemy
   m_TagString: EnemyWeapon
@@ -1369,6 +1370,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!114 &7829115644212974674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680383326792459711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfec6372670fec642baa3412ee10caeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  guiSkin: {fileID: 11400000, guid: 3d4d36e9309493b4c902d532b85583eb, type: 2}
+  NPC: {fileID: 7680383326792459711}
+  text: 'HP: '
+  color: {r: 1, g: 1, b: 1, a: 1}
+  fontSize: 10
+  offsetX: 0
+  offsetY: 0.5
+  messagePermanent: 1
 --- !u!1 &7735639441925134037
 GameObject:
   m_ObjectHideFlags: 0
