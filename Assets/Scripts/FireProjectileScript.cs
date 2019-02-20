@@ -5,30 +5,27 @@ using UnityEngine;
  * Add this script to an object that shall be able to fire projectiles.
  * The spawnpoint can be specified in the inspector, should probably be set to the gameobject's.
  */
-public class FireProjectileScript : MonoBehaviour
+public class FireProjectileScript : VRTK.VRTK_InteractableObject
 {
     public Rigidbody projectile;
     public Transform spawnpoint;
     public int speed = 10;
 
-    private SteamVR_TrackedObject trackedObj;
-    private SteamVR_Controller.Device Controller
+    private VRTK.VRTK_ControllerEvents controllerEvents;
+
+    public override void Grabbed(VRTK.VRTK_InteractGrab currentGrabbingObject)
     {
-        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+        base.Grabbed(currentGrabbingObject);
+
+        controllerEvents = currentGrabbingObject.GetComponent<VRTK.VRTK_ControllerEvents>();
     }
 
-    void Awake()
+    public override void StartUsing(VRTK.VRTK_InteractUse currentUsingObject)
     {
-        trackedObj = GetComponent<SteamVR_TrackedObject>();
-    }
+        base.StartUsing(currentUsingObject);
+        FireProjectile();
+        VRTK.VRTK_ControllerHaptics.TriggerHapticPulse(VRTK.VRTK_ControllerReference.GetControllerReference(controllerEvents.gameObject), 0.63f, 0.2f, 0.01f);
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Controller.GetHairTriggerDown())
-        {
-            FireProjectile();
-        }
     }
 
     void FireProjectile()
