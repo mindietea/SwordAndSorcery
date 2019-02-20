@@ -25,7 +25,7 @@ public class FireProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Controller.GetHairTriggerDown())
+        if (Controller.GetHairTriggerDown() || Input.GetKeyDown(KeyCode.LeftShift))
         {
             FireProjectile();
         }
