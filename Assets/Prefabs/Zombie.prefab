@@ -543,9 +543,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4654265710181534}
   - component: {fileID: 137613078668911958}
+  - component: {fileID: 4679491598486747106}
   m_Layer: 0
   m_Name: L Hand
-  m_TagString: Untagged
+  m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -616,6 +617,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.5705144, y: -0.17333402, z: -0.053062472}
     m_Extent: {x: 0.14890152, y: 0.11821227, z: 0.11044499}
   m_DirtyAABB: 0
+--- !u!114 &4679491598486747106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1218460168306878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0f23b47ed480d4ab552d6f573a5fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1281367470461582
 GameObject:
   m_ObjectHideFlags: 0
@@ -843,8 +857,6 @@ MonoBehaviour:
   runSpeed: 4
   walkSpeed: 0.5
   randomWalkTime: 0.1
-  isInPursuit: 0
-  following: {fileID: 0}
 --- !u!1 &1342411359040796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1361,9 +1373,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4382187119034446}
   - component: {fileID: 137039581699937316}
+  - component: {fileID: 8293796116794942058}
   m_Layer: 0
   m_Name: R Hand
-  m_TagString: Untagged
+  m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1433,6 +1446,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.3015614, y: -0.0019324645, z: 0.05306163}
     m_Extent: {x: 0.14694151, y: 0.10307154, z: 0.11044496}
   m_DirtyAABB: 0
+--- !u!114 &8293796116794942058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525103234587934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0f23b47ed480d4ab552d6f573a5fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1612094400397754
 GameObject:
   m_ObjectHideFlags: 0
