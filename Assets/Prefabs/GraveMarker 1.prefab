@@ -105,3 +105,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1212ae3b91c3ed742844fc62116f66f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  range: 7
+  monster: {fileID: 7680383326792459711, guid: 0b7064df05781e04ea646de1e9b4586a, type: 3}
+  spawned: 0

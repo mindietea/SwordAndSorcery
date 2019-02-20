@@ -9,27 +9,38 @@ public class FireProjectileScript : MonoBehaviour
 {
     public Rigidbody projectile;
     public Transform spawnpoint;
-    public int speed;
+    public int speed = 10;
 
-    // Start is called before the first frame update
-    void Start()
+    private SteamVR_TrackedObject trackedObj;
+    private SteamVR_Controller.Device Controller
     {
+        get { return SteamVR_Controller.Input((int)trackedObj.index); }
+    }
 
+    void Awake()
+    {
+        trackedObj = GetComponent<SteamVR_TrackedObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (Controller.GetHairTriggerDown())
+        {
+            FireProjectile();
+        }
     }
 
-    void OnTriggerEvent()
+    void FireProjectile()
     {
         Rigidbody fireball;
-        Vector3 adjustment = Vector3.forward;
+        Vector3 pos_adjustment = Vector3.forward;
+        Quaternion spawn_rotation = Quaternion.Euler(spawnpoint.rotation.eulerAngles.x,
+            spawnpoint.rotation.eulerAngles.y,
+            spawnpoint.rotation.eulerAngles.z);
         // Instantiate fireball at the spawnpoint position, adjusted by a Vector3
-        fireball = Instantiate(projectile, spawnpoint.position + adjustment,
-            spawnpoint.rotation);
+        fireball = Instantiate(projectile, spawnpoint.position + pos_adjustment,
+            spawn_rotation);
         fireball.velocity = spawnpoint.TransformDirection(Vector3.forward * speed);
     }
 }

@@ -10,7 +10,7 @@ TagManager:
   - TeleportIgnore
   - PlayerWeapon
   - Enemy
-  - Zombie
+  - EnemyWeapon
   layers:
   - Default
   - TransparentFX
