@@ -43,9 +43,10 @@
 	public void InflictDamage(int dmg)
 	{
 		currentHealth = Mathf.Max(0, currentHealth -= dmg);
-	}
+        Debug.Log(this.gameObject.name + " Health: " + currentHealth);
+    }
 
-	public void HealDamage(int heal)
+    public void HealDamage(int heal)
 	{
 		currentHealth = Mathf.Min(maxHealth, currentHealth += heal);
 	}
@@ -93,7 +94,6 @@
 				// Take Damage
 				InflictDamage(dmgScript.damage);
 				lastDamaged = 0.0f;
-				Debug.Log(this.gameObject.name + " Health: " + currentHealth);
 
 				// Trigger damaged animation
 				if(anim != null)
