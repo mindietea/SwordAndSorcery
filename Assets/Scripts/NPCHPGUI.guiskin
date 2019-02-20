@@ -68,7 +68,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 10
+    m_FontSize: 40
     m_FontStyle: 0
     m_Alignment: 1
     m_WordWrap: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_ContentOffset: {x: 0, y: 0}
     m_FixedWidth: 0
     m_FixedHeight: 0
-    m_StretchWidth: 1
+    m_StretchWidth: 0
     m_StretchHeight: 0
   m_button:
     m_Name: button

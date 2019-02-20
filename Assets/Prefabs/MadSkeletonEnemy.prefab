@@ -1263,8 +1263,8 @@ GameObject:
   - component: {fileID: 7680383326792459714}
   - component: {fileID: 7680383326792459712}
   - component: {fileID: 7680383326792459715}
+  - component: {fileID: 2385121090135040752}
   - component: {fileID: 5852187390108040831}
-  - component: {fileID: 7829115644212974674}
   m_Layer: 0
   m_Name: MadSkeletonEnemy
   m_TagString: EnemyWeapon
@@ -1357,20 +1357,7 @@ MonoBehaviour:
   attackRange: 3.5
   runSpeed: 4
   dead: 0
---- !u!114 &5852187390108040831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7680383326792459711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e0f23b47ed480d4ab552d6f573a5fd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 10
---- !u!114 &7829115644212974674
+--- !u!114 &2385121090135040752
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1386,10 +1373,23 @@ MonoBehaviour:
   NPC: {fileID: 7680383326792459711}
   text: 'HP: '
   color: {r: 1, g: 1, b: 1, a: 1}
-  fontSize: 10
+  fontSize: 20
   offsetX: 0
-  offsetY: 0.5
+  offsetY: 0
   messagePermanent: 1
+--- !u!114 &5852187390108040831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7680383326792459711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0f23b47ed480d4ab552d6f573a5fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &7735639441925134037
 GameObject:
   m_ObjectHideFlags: 0

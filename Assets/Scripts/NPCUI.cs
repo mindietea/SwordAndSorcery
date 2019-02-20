@@ -9,7 +9,7 @@ public class NPCUI : MonoBehaviour
     protected HealthScript script;
 
     public Color color = Color.white;   // choose font color/size
-    public float fontSize = 10;
+    public int fontSize = 10;
     public float offsetX = 0;
     public float offsetY = 0.5f;
 
@@ -32,6 +32,8 @@ public class NPCUI : MonoBehaviour
     {
         script = NPC.GetComponentInChildren<HealthScript>() as HealthScript;
         text = "HP: " + script.currentHealth;
+        boxW = fontSize * 15;
+        boxH = fontSize * 2;
     }
     void OnGUI()
     {
@@ -43,17 +45,21 @@ public class NPCUI : MonoBehaviour
             }
 
             GUI.skin = guiSkin;
-            boxPosition = Camera.main.WorldToScreenPoint(transform.position);
-            boxPosition.y = Screen.height - boxPosition.y;
-            boxPosition.x -= boxW * 0.1f;
-            boxPosition.y -= boxH * 0.5f;
-            guiSkin.box.fontSize = 10;
+            boxPosition = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 0.5f, 0));
+            Vector3 NPCPos = Camera.main.WorldToViewportPoint(transform.position);
+            if (NPCPos.x >= 0 && NPCPos.x <= 1 && NPCPos.y >= 0 && NPCPos.y <= 1&& NPCPos.y >=0 && NPCPos.z>=0 )
+            {
+                boxPosition.y = Screen.height - boxPosition.y - 130;
+                boxPosition.x -= boxW * 0.1f;
 
-            GUI.contentColor = color;
+                guiSkin.box.fontSize = this.fontSize;
 
-            Vector2 content = guiSkin.box.CalcSize(new GUIContent(text));
+                GUI.contentColor = color;
 
-            GUI.Box(new Rect(boxPosition.x - content.x / 2 * offsetX, boxPosition.y + offsetY, content.x, content.y), text);
+                Vector2 content = guiSkin.box.CalcSize(new GUIContent(text));
+
+                GUI.Box(new Rect(boxPosition.x, boxPosition.y, content.x, content.y), text);
+            }
         }
     }
 }
