@@ -13,6 +13,7 @@ public class ZombieScript : MonoBehaviour
     bool isInPursuit = false;
     GameObject following = null;
     private float time = 0.0f;
+    float PrevHealth;
 
     private Animator anim;
 
@@ -20,12 +21,18 @@ public class ZombieScript : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        PrevHealth = GetComponent<HealthScript>().currentHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
         anim.SetBool("AttackRange", GameManager.GetDistanceToPlayer(gameObject) <= attackRange);
+        if (GetComponent<HealthScript>().currentHealth < PrevHealth)
+        {
+            PrevHealth = GetComponent<HealthScript>().currentHealth;
+            anim.SetTrigger("Damage");
+        }
     }
 
     void FixedUpdate()
