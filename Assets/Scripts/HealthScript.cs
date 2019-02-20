@@ -27,10 +27,15 @@
 	private Animator anim;
 	private int damageHash = Animator.StringToHash("Damage");
 
-		void Update()
-		{
-			lastDamaged += Time.deltaTime;
-		}
+	void Update()
+	{
+		lastDamaged += Time.deltaTime;
+		// UpdateHealth();
+	}
+
+	// void UpdateHealth(){
+	// 	healthText.text = "Health: " + currentHealth;
+	// }
 
 	public void InflictDamage(int dmg)
 	{
@@ -44,26 +49,43 @@
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		CheckDamage(collision.gameObject);
+		foreach (ContactPoint contact in collision.contacts){
+			// Debug.Log(contact.thisCollider.name + " hit " + contact.otherCollider.name);
+
+			if(contact.otherCollider.name == "Player" || contact.thisCollider.name == "Player"){
+				// Debug.Log("This Collider, " + contact.thisCollider.name + " Collided with other Collider, " + contact.otherCollider.name);
+				// Debug.Log("Player Hit By Enemy");
+				// Debug.Log("Printing: " + collision.gameObject);
+				CheckDamage(collision.gameObject);
+			}
+
+			if(contact.otherCollider.name == "Bip001 Spine1" || contact.thisCollider.name == "Bip001 Spine1"){
+				// Debug.Log("This Collider, " + contact.thisCollider.name + " Collided with other Collider, " + contact.otherCollider.name);
+				// Debug.Log("Enemy Hit By Player");
+				// Debug.Log("Printing: " + collision.gameObject);
+				CheckDamage(collision.gameObject);
+			}
+		}
 	}
 
-	private void OnTriggerEnter(Collider other)
-	{
-		CheckDamage(other.gameObject);
-	}
+	// private void OnTriggerEnter(Collider other)
+	// {
+	// 	CheckDamage(other.gameObject);
+	// }
 
 	private void CheckDamage(GameObject other)
 	{
 		// Deals damage if it is one of the damageTags
+		// Debug.Log(this.gameObject.name + " : " + other.gameObject.name + " " + other.tag);
 		if (lastDamaged >= damageCooldown && damageTags.Contains(other.tag))
 		{
 			DamageScript dmgScript = other.GetComponent<DamageScript>();
 			if (dmgScript != null)
 			{
 				// Take Damage
-				Debug.Log("Hit");
 				InflictDamage(dmgScript.damage);
 				lastDamaged = 0.0f;
+				Debug.Log(this.gameObject.name + " Health: " + currentHealth);
 
 				// Trigger damaged animation
 				if(anim != null)
