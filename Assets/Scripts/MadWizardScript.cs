@@ -8,6 +8,7 @@ public class MadWizardScript : MonoBehaviour
     public float pursuitRange = 10.0f;
     public float attackRange = 2.0f;
     public float runSpeed = 10.0f;
+    public int outofrange = 5; 
 
     public bool dead = false;
     float PrevHealth;
@@ -56,7 +57,7 @@ public class MadWizardScript : MonoBehaviour
         }
 
 
-        if(this.transform.position.x >= (originalPos.x + 10)){
+        if(this.transform.position.x >= (originalPos.x + outofrange) || this.transform.position.x <= (originalPos.x - outofrange)){
          GetComponent<Rigidbody>().MovePosition(originalPos);
         }
     }
