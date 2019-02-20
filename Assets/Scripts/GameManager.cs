@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameManager
 {
-    public static GameObject GetPlayer() {
+    public static GameObject GetPlayer()
+	{
         return GameObject.FindGameObjectWithTag("Player");
     }
 
