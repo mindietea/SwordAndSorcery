@@ -35,12 +35,9 @@ public class FireProjectileScript : MonoBehaviour
     {
         Rigidbody fireball;
         Vector3 pos_adjustment = Vector3.forward;
-        Quaternion spawn_rotation = Quaternion.Euler(spawnpoint.rotation.eulerAngles.x,
-            spawnpoint.rotation.eulerAngles.y,
-            spawnpoint.rotation.eulerAngles.z);
         // Instantiate fireball at the spawnpoint position, adjusted by a Vector3
         fireball = Instantiate(projectile, spawnpoint.position + pos_adjustment,
-            spawn_rotation);
+            spawnpoint.rotation);
         fireball.velocity = spawnpoint.TransformDirection(Vector3.forward * speed);
     }
 }

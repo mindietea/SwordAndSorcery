@@ -24,21 +24,27 @@ public class MadSkeletonScript : MonoBehaviour
         PrevHealth = GetComponent<HealthScript>().currentHealth;
     }
 
+	private void HandleDeath()
+	{
+		dead = true;
+		anim.SetBool("Death", true);
+		GameManager.KilledEnemy();
+		Debug.Log("Enemy Dead");
+	}
+
     // Update is called once per frame
     void Update()
     {
         anim.SetBool("PursuitRange", GameManager.GetDistanceToPlayer(gameObject) <= pursuitRange);
         anim.SetBool("AttackRange", GameManager.GetDistanceToPlayer(gameObject) <= attackRange);
-        
+
          if(!dead && GetComponent<HealthScript>().currentHealth != PrevHealth) {
          	PrevHealth = GetComponent<HealthScript>().currentHealth;
             anim.SetTrigger("Damage");
         }
 
         if(!dead && GetComponent<HealthScript>().currentHealth <= 0) {
-            dead = true;
-            anim.SetBool("Death", true);
-            Debug.Log("Enemy Dead");
+            HandleDeath();
         }
     }
 
