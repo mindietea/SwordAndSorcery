@@ -6,6 +6,8 @@ public class ProjectileScript : MonoBehaviour
 {
     public ParticleSystem fire;
     public ParticleSystem explosion;
+    public float timeout = 5.0f;
+    private float time = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +18,15 @@ public class ProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ParticleSystem fireClone = Instantiate(fire, gameObject.transform.position, gameObject.transform.rotation);
+        time += Time.deltaTime;
+        if(time >= timeout)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            ParticleSystem fireClone = Instantiate(fire, gameObject.transform.position, gameObject.transform.rotation);
+        }
     }
 
     void OnCollisionEnter(Collision collision)

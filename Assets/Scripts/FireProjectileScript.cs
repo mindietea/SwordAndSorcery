@@ -34,10 +34,10 @@ public class FireProjectileScript : MonoBehaviour
     void FireProjectile()
     {
         Rigidbody fireball;
-        Vector3 pos_adjustment = Vector3.forward;
+        Vector3 pos_adjustment = Vector3.forward * 2;
         // Instantiate fireball at the spawnpoint position, adjusted by a Vector3
         fireball = Instantiate(projectile, spawnpoint.position + pos_adjustment,
             spawnpoint.rotation);
-        fireball.velocity = spawnpoint.TransformDirection(Vector3.forward * speed);
+        fireball.velocity = spawnpoint.TransformDirection(Vector3.up * speed);
     }
 }
