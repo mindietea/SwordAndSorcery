@@ -31,9 +31,12 @@ public class GraveMarkerScript : MonoBehaviour
 		{
 			GameObject spawn = Instantiate(monster);
             spawn.transform.position = transform.position;
-            spawn.transform.position = new Vector3(spawn.transform.position.x + Random.Range(-6f, 6f),
-												   Terrain.activeTerrain.SampleHeight(spawn.transform.position),
-												   spawn.transform.position.z + Random.Range(-6f, 6f));
+            spawn.transform.position = new Vector3(
+											spawn.transform.position.x + Random.Range(-6f, 6f),
+											Terrain.activeTerrain.SampleHeight(spawn.transform.position) + Terrain.activeTerrain.transform.position.y,
+											spawn.transform.position.z + Random.Range(-6f, 6f)
+										);
+
 			yield return new WaitForSeconds(secondsBetweenSpawns + Random.Range(-spawnTimeRandomness, spawnTimeRandomness));
 		}
 	}
