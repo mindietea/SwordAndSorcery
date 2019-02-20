@@ -11,14 +11,21 @@ public class MushroomMonsterScript : MonoBehaviour
     private const string DEATH = "Death";
 
     public float sporeFrequency = 3.0f;
-    private float sporeTimer = 999.0f;
+    public float sporeDuration = 2.0f;
 
     public float sporeRadius = 29.0f;
+
+    public GameObject uiTint;
+
+    // Should be Private but we make public for debugging :p
+    public bool sporesActive = false;
+    public float sporeTimer = 999.0f;
 
     Animation anim;
 
     void Start()
     {
+        sporesActive = false;
         anim = GetComponent<Animation>();
         IdleAni();
     }
@@ -27,16 +34,26 @@ public class MushroomMonsterScript : MonoBehaviour
     {
         sporeTimer += Time.deltaTime;
 
+        if(sporeTimer >= sporeDuration)
+        {
+            sporesActive = false;
+        }
+
         if(sporeTimer >= sporeFrequency)
         {
+            sporesActive = true;
             AttackAni();
             sporeTimer = 0.0f;
             GetComponent<ParticleSystem>().Play();
         }
 
-        if(Vector3.Distance(GameManager.GetPlayer().transform.position, transform.position) < sporeRadius)
+        // Check if player in spores
+        if(sporesActive && Vector3.Distance(GameManager.GetPlayer().transform.position, transform.position) < sporeRadius)
         {
-            Debug.Log("sporin");
+            uiTint.SetActive(true);
+        } else
+        {
+            uiTint.SetActive(false);
         }
     }
 
