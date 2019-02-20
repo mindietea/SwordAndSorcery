@@ -2296,6 +2296,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694963605}
   m_CullTransparentMesh: 0
+--- !u!1 &703412353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1892075980036292, guid: 1cdc295127e79624ea4c35b3f3e66855,
+    type: 3}
+  m_PrefabInstance: {fileID: 1892076660760645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &703412354 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1892075980036295, guid: 1cdc295127e79624ea4c35b3f3e66855,
@@ -4909,7 +4915,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sporeFrequency: 7
+  sporeDuration: 2
   sporeRadius: 4.5
+  uiTint: {fileID: 703412353}
+  sporesActive: 0
+  sporeTimer: 999
 --- !u!199 &1525458387
 ParticleSystemRenderer:
   serializedVersion: 6
