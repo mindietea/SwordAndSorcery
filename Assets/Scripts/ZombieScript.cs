@@ -10,8 +10,8 @@ public class ZombieScript : MonoBehaviour
     public float runSpeed = 2.0f;
     public float walkSpeed = 0.5f;
     public float randomWalkTime = 0.1f;
-    public bool isInPursuit = false;
-    public GameObject following = null;
+    bool isInPursuit = false;
+    GameObject following = null;
     private float time = 0.0f;
 
     private Animator anim;

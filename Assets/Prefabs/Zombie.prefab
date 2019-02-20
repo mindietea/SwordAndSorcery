@@ -819,8 +819,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fef0d1e73a67714795fb7e9a1f1e31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 1
-  maxHealth: 1
+  currentHealth: 10
+  maxHealth: 10
   damageCooldown: 0.2
   lastDamaged: 9999
   damageTags:
@@ -839,9 +839,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pursuitRange: 10
   attackRange: 2
+  hordeRange: 40
   runSpeed: 4
   walkSpeed: 0.5
   randomWalkTime: 0.1
+  isInPursuit: 0
+  following: {fileID: 0}
 --- !u!1 &1342411359040796
 GameObject:
   m_ObjectHideFlags: 0
