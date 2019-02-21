@@ -121,7 +121,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4000011921798948, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -11.04
       objectReference: {fileID: 0}
     - target: {fileID: 114000010315091656, guid: 41c0760bd81dd084283814f0c432b466,
         type: 3}
@@ -212,6 +212,18 @@ PrefabInstance:
     - target: {fileID: 4544606604026690, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010207334600, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000010242415096, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012660741642, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
@@ -363,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectControlScript: {fileID: 202006660}
   listenOnAxisChange: 1
-  maximumSpeed: 3
+  maximumSpeed: 5
   deceleration: 0.1
   fallingDeceleration: 0.01
   speedMultiplier: 1.5
@@ -382,7 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectControlScript: {fileID: 202006660}
   listenOnAxisChange: 0
-  maximumSpeed: 3
+  maximumSpeed: 5
   deceleration: 0.1
   fallingDeceleration: 0.01
   speedMultiplier: 1.5
@@ -655,7 +667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 91c58ff4eaaa0094f8640c2ec4c71308, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 91c58ff4eaaa0094f8640c2ec4c71308, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -836,6 +848,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!64 &154375835
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154375825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 91c58ff4eaaa0094f8640c2ec4c71308, type: 3}
+--- !u!136 &154375836
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154375825}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.14538212
+  m_Height: 1.6001853
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5759678, z: 0}
 --- !u!1 &178152318
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,7 +909,7 @@ Transform:
   - {fileID: 1488915907}
   - {fileID: 288891158}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &202006652
 GameObject:
@@ -1363,7 +1403,7 @@ PrefabInstance:
     - target: {fileID: 238021460498388769, guid: 864a958e4ad72874997aaf0efc24fbd6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 238021460498388769, guid: 864a958e4ad72874997aaf0efc24fbd6,
         type: 3}
@@ -1565,7 +1605,7 @@ PrefabInstance:
     - target: {fileID: 6679582684173537760, guid: 0b7064df05781e04ea646de1e9b4586a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6679582684173537760, guid: 0b7064df05781e04ea646de1e9b4586a,
         type: 3}
@@ -1638,6 +1678,16 @@ PrefabInstance:
     - target: {fileID: 2145192141, guid: 5310a967f45d51f43bb0d358d8510836, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302521300372755736, guid: 5310a967f45d51f43bb0d358d8510836,
+        type: 3}
+      propertyPath: sdkOverrides.Array.data[1].rotation.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302521300372755736, guid: 5310a967f45d51f43bb0d358d8510836,
+        type: 3}
+      propertyPath: sdkOverrides.Array.data[1].rotation.z
+      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5310a967f45d51f43bb0d358d8510836, type: 3}
@@ -1897,7 +1947,7 @@ PrefabInstance:
     - target: {fileID: 3173883731783210787, guid: d042c9d4ca2cd44b0bf00f188efc05d0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3173883731783210787, guid: d042c9d4ca2cd44b0bf00f188efc05d0,
         type: 3}
@@ -2651,7 +2701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f9596f52dc5d12e4c8d035564d55754e, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: f9596f52dc5d12e4c8d035564d55754e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2832,6 +2882,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
+--- !u!136 &1488915918
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488915908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.109027706
+  m_Height: 1.5808085
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.58848166, z: 0.00000011920929}
 --- !u!1 &1507190977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,7 +3339,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectControlScript: {fileID: 146687113}
   listenOnAxisChange: 1
-  maximumSpeed: 3
+  maximumSpeed: 5
   deceleration: 0.1
   fallingDeceleration: 0.01
   speedMultiplier: 1.5
@@ -3294,7 +3358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectControlScript: {fileID: 146687113}
   listenOnAxisChange: 0
-  maximumSpeed: 3
+  maximumSpeed: 5
   deceleration: 0.1
   fallingDeceleration: 0.01
   speedMultiplier: 1.5

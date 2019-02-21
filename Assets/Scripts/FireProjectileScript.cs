@@ -30,9 +30,9 @@ public class FireProjectileScript : VRTK.VRTK_InteractableObject
     void FireProjectile()
     {
         Rigidbody fireball;
-        Vector3 pos_adjustment = Vector3.forward * 2;
+        Vector3 pos_adjustment = Vector3.forward * 1.5f;
         // Instantiate fireball at the spawnpoint position, adjusted by a Vector3
-        fireball = Instantiate(projectile, spawnpoint.position + pos_adjustment,
+        fireball = Instantiate(projectile, spawnpoint.position ,
             spawnpoint.rotation);
         fireball.velocity = spawnpoint.TransformDirection(Vector3.up * speed);
     }
