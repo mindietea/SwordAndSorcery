@@ -4,4 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/NewGameUI.unity
+    guid: 12e9b2c7d8c819a4a873164dc20be737
+  - enabled: 1
+    path: Assets/Scenes/GraveMarkerScene.unity
+    guid: 7ff2c59879b6d5247aeb9fa557f953cc
+  m_configObjects: {}

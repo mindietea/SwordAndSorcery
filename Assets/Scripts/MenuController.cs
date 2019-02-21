@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using VRTK;
 
-public class NewGame_WorldController : MonoBehaviour
+public class MenuController : MonoBehaviour
 {
-
+    public GameObject playerCanvas;
+    public GameObject menuCanvas;
     // Start is called before the first frame update
     void Start()
     {
+        playerCanvas.SetActive(false);
+        menuCanvas.SetActive(true);
     }
 
     // Update is called once per frame
@@ -23,7 +27,8 @@ public class NewGame_WorldController : MonoBehaviour
 
 		switch (incomingName) {
 			case "NewGame":
-				SceneManager.LoadScene("GraveMarkerScene");
+                playerCanvas.SetActive(true);
+                menuCanvas.SetActive(false);
 				break;
 
 			case "Quit":

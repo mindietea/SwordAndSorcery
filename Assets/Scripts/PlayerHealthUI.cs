@@ -9,20 +9,27 @@ public class PlayerHealthUI : MonoBehaviour
 {
     public GameObject actor;
     public GameObject healthCanvas;
+    public GameObject scoreCanvas;
+    public GameObject remainingCanvas;
+    public GameManager manager;
 
     protected HealthScript script;
     protected Text healthText;
+    protected Text scoreText;
+    protected Text remainingText;
 
     // Start is called before the first frame update
     void Start()
     {
         script = actor.GetComponentInChildren<HealthScript>() as HealthScript;
         healthText = healthCanvas.GetComponentInChildren<Text>();
+        scoreText = scoreCanvas.GetComponentInChildren<Text>();
     }
 
     // Update is called once per frame
     void Update()
     {
         healthText.text = "Health: " + script.currentHealth.ToString();
+        scoreText.text = "Score: " + GameManager.enemiesKilled.ToString();
     }
 }
