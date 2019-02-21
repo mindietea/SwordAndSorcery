@@ -5,10 +5,10 @@ using UnityEngine;
 public class GameManager
 {
 	// how many (basic) enemies have been killed so far
-	private static uint enemiesKilled = 0;
+	public static uint enemiesKilled = 0;
 
 	// the goal of the number of (basic) enemies to kill
-	private const uint ENEMIES_TO_KILL = 5;
+	public const uint ENEMIES_TO_KILL = 5;
 
 	// this should be called when a (basic) enemy is killed
 	public static void KilledEnemy()
