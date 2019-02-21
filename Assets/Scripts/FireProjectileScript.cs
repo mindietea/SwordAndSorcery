@@ -16,7 +16,6 @@ public class FireProjectileScript : VRTK.VRTK_InteractableObject
     public override void Grabbed(VRTK.VRTK_InteractGrab currentGrabbingObject)
     {
         base.Grabbed(currentGrabbingObject);
-
         controllerEvents = currentGrabbingObject.GetComponent<VRTK.VRTK_ControllerEvents>();
     }
 
@@ -25,7 +24,7 @@ public class FireProjectileScript : VRTK.VRTK_InteractableObject
         base.StartUsing(currentUsingObject);
         FireProjectile();
         VRTK.VRTK_ControllerHaptics.TriggerHapticPulse(VRTK.VRTK_ControllerReference.GetControllerReference(controllerEvents.gameObject), 0.63f, 0.2f, 0.01f);
-
+       
     }
 
     void FireProjectile()
