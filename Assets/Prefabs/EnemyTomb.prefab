@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2566592821120050782}
   m_LocalRotation: {x: -0.000000021855694, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0000009536743, y: 0.1, z: -0.0000019117197}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 14, y: 1, z: 14}
   m_Children: []
   m_Father: {fileID: 6628711697848265221}
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1212ae3b91c3ed742844fc62116f66f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
+  range: 7
   monsterCount: 5
   secondsBetweenSpawns: 4
   spawnTimeRandomness: 2
