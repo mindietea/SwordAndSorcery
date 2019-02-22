@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 466626048}
   - component: {fileID: 466626047}
   - component: {fileID: 466626046}
+  - component: {fileID: 6608645489846619256}
   m_Layer: 0
   m_Name: PlayerUICanvas
   m_TagString: Untagged
@@ -115,6 +116,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickOnPointerCollision: 0
   autoActivateWithinDistance: 0
+--- !u!114 &6608645489846619256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466626044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de84087a9dfc1406fa596d76c124b278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  healthTextObj: {fileID: 2319497167880936788}
+  enemiesKilledTextObj: {fileID: 6330576777866481087}
 --- !u!1 &871699883
 GameObject:
   m_ObjectHideFlags: 0
