@@ -1354,7 +1354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pursuitRange: 1000
-  attackRange: 3.5
+  attackRange: 2.5
   runSpeed: 4
   dead: 0
 --- !u!114 &5852187390108040831
