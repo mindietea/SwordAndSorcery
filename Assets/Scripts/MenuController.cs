@@ -46,14 +46,12 @@ public class MenuController : MonoBehaviour
 
 		switch (incomingName) {
 			case "NewGame":
-                playerCanvas.SetActive(true);
-                menuCanvas.SetActive(false);
+                UnpauseGame();
 				break;
 
 			case "Quit":
 				Application.Quit(); ///...asthetically speaking :>
 				break;
-
         }
 	}
 }

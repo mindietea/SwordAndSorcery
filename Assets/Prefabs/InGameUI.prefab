@@ -500,9 +500,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4153859338889220794, guid: 54c6ef4a64cc6464baa17945e1b57626,
-          type: 3}
-        m_MethodName: OnButtonClicks
+      - m_Target: {fileID: 11500000, guid: 5617b789fb47b40ed91b03c828b4f59e, type: 3}
+        m_MethodName: set_name
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -683,7 +682,7 @@ GameObject:
   - component: {fileID: 1965923628}
   - component: {fileID: 1965923627}
   m_Layer: 0
-  m_Name: InGameUI 1
+  m_Name: InGameUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
