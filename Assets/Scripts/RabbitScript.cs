@@ -38,11 +38,10 @@ public class RabbitScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!anim.GetBool("Dead") && collision.collider.gameObject.tag == "Player")
+        if (!anim.GetBool("Dead") && collision.collider.gameObject.name == "Player")
         {
             anim.SetBool("Dead", true);
             Instantiate(explosion, gameObject.transform.position + Vector3.up, Quaternion.identity);
-            Destroy(gameObject, 10);
         }
     }
 }
