@@ -10609,7 +10609,7 @@ GameObject:
   - component: {fileID: 3934693455603394243}
   m_Layer: 0
   m_Name: Bip001 Spine1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10946,7 +10946,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000012399466282}
   m_LocalRotation: {x: -0.4325401, y: -0.6318271, z: 0.112421155, w: 0.63329697}
-  m_LocalPosition: {x: -0.06, y: -1.63, z: -0.67}
+  m_LocalPosition: {x: -1.236, y: -1.098, z: -0.896}
   m_LocalScale: {x: 1, y: 1, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 4000010094665428}
@@ -16629,7 +16629,8 @@ MonoBehaviour:
   maxHealth: 100
   damageCooldown: 0.2
   lastDamaged: 9999
-  damageTags: []
+  damageTags:
+  - PlayerWeapon
 --- !u!114 &2131297479413427566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16655,7 +16656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5bcd790cae1cf841920a44275e137cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pursuitRange: 10
+  pursuitRange: 1000
   attackRange: 4
   runSpeed: 4
   outofrange: 5
@@ -16673,7 +16674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guiSkin: {fileID: 11400000, guid: 3d4d36e9309493b4c902d532b85583eb, type: 2}
-  NPC: {fileID: 1000013586557078, guid: 3c9c8a8bf50e6b5439ab9db67bc82586, type: 3}
+  NPC: {fileID: 1000013586557078}
   text: 'HP: '
   color: {r: 1, g: 1, b: 1, a: 1}
   fontSize: 10
