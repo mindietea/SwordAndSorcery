@@ -281,7 +281,7 @@ MonoBehaviour:
   durationOnGrab: 0
   intervalOnGrab: 0.05
   cancelOnUngrab: 1
-  clipOnUse: {fileID: 0}
+  clipOnUse: {fileID: 8300000, guid: 99376ea6a70f31c429f078f9e3467a08, type: 3}
   strengthOnUse: 0
   durationOnUse: 0
   intervalOnUse: 0.05
