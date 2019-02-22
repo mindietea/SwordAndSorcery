@@ -42,4 +42,10 @@ public class GameManager
     {
         return Vector3.Distance(other.transform.position, GetPlayer().transform.position);
     }
+
+    public static Vector3 GetWorldToScreenPoint(GameObject target)
+    {
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.transform.position);
+        return screenPos;
+    }
 }
