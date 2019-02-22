@@ -8,20 +8,39 @@ public class MenuController : MonoBehaviour
 {
     public GameObject playerCanvas;
     public GameObject menuCanvas;
-    // Start is called before the first frame update
+	private bool isPaused = true;
+
+	// Start is called before the first frame update
     void Start()
     {
-        playerCanvas.SetActive(false);
-        menuCanvas.SetActive(true);
+		PauseGame();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-	public void OnButtonClicks (string incomingName)
+	// this function should be called when the player presses the menu
+	// button on the controller
+	private void PauseGame()
+	{
+		Debug.Log("Paused Game");
+		Time.timeScale = 0;
+		menuCanvas.SetActive(true);
+	}
+
+	// this function should be called when the game is paused
+	// and the player presses the menu button on the controller
+	private void UnpauseGame()
+	{
+		Debug.Log("Unpaused Game");
+		Time.timeScale = 1;
+		menuCanvas.SetActive(false);
+	}
+
+	public void OnButtonClicks(string incomingName)
 	{
 		Debug.Log ("clicked on " + incomingName);
 
