@@ -8,11 +8,11 @@ public class MadWizardScript : MonoBehaviour
     public float pursuitRange = 10.0f;
     public float attackRange = 2.0f;
     public float runSpeed = 10.0f;
-    public int outofrange = 5; 
+    public int outofrange = 5;
 
     public bool dead = false;
     float PrevHealth;
-	Vector3 originalPos;   
+	Vector3 originalPos;
     // Animator
     private Animator anim;
 
@@ -31,7 +31,7 @@ public class MadWizardScript : MonoBehaviour
     {
         anim.SetBool("PursuitRange", GameManager.GetDistanceToPlayer(gameObject) <= pursuitRange);
         anim.SetBool("AttackRange", GameManager.GetDistanceToPlayer(gameObject) <= attackRange);
-        
+
          if(!dead && GetComponent<HealthScript>().currentHealth != PrevHealth) {
          	PrevHealth = GetComponent<HealthScript>().currentHealth;
             anim.SetTrigger("Damage");
@@ -41,7 +41,7 @@ public class MadWizardScript : MonoBehaviour
             dead = true;
             anim.SetBool("Death", true);
             Debug.Log("BOSS Dead");
-            GameManager.handleGameWon();
+            GameManager.HandleGameWon();
         }
 
     }

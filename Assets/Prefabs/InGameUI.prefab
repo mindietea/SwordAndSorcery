@@ -128,9 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de84087a9dfc1406fa596d76c124b278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  healthTextObj: {fileID: 2319497167880936788}
-  enemiesKilledTextObj: {fileID: 6330576777866481087}
+  healthText: {fileID: 5765428604893955590}
+  enemiesKilledText: {fileID: 2868858665994387604}
 --- !u!1 &871699883
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +327,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCanvas: {fileID: 466626044}
   menuCanvas: {fileID: 1028105528}
+  pauseTexture: {fileID: 2800000, guid: d0c094c74ef43440c9c8d8a6e62cb8a0, type: 3}
+  victoryTexture: {fileID: 2800000, guid: bc5c842f5521743b1a6ee5fa2a2b4b57, type: 3}
+  defeatTexture: {fileID: 2800000, guid: 39f7a6470663542e884889d083e55634, type: 3}
+  menuImage: {fileID: 1048345987}
 --- !u!1 &1048345987
 GameObject:
   m_ObjectHideFlags: 0

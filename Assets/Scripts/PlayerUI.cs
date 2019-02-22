@@ -8,26 +8,32 @@ using UnityEngine.UI;
 // and the GameObjects that display health and enemies killed.
 public class PlayerUI : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject healthTextObj;
-    public GameObject enemiesKilledTextObj;
+    public Text healthText;
+    public Text enemiesKilledText;
 
-    private HealthScript healthScript;
-    private Text healthText;
-    private Text enemiesKilledText;
+	private HealthScript healthScript = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        healthScript = player.GetComponentInChildren<HealthScript>() as HealthScript;
-        healthText = healthTextObj.GetComponentInChildren<Text>();
-        enemiesKilledText = enemiesKilledTextObj.GetComponentInChildren<Text>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        healthText.text = healthScript.currentHealth.ToString()  + " HP";
+		healthText.text = GetHealthScript().currentHealth.ToString()  + " HP";
         enemiesKilledText.text = GameManager.enemiesKilled.ToString() + "/" + GameManager.ENEMIES_TO_KILL.ToString() + " Enemies Killed";
     }
+
+	// need to use a getter like this so the FindGameObjectWithTag is called
+	// at runtime when the Player GameObject with the healthText has been loaded
+	private HealthScript GetHealthScript()
+	{
+		if (healthScript == null)
+		{
+			healthScript = GameManager.GetPlayer().GetComponent<HealthScript>();
+		}
+		return healthScript;
+	}
 }
