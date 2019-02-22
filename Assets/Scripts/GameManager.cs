@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManager
 {
 	// how many (basic) enemies have been killed so far
-	private static uint enemiesKilled = 0;
+	public static uint enemiesKilled = 0;
 
 	// the goal of the number of (basic) enemies to kill
-	private const uint ENEMIES_TO_KILL = 5;
+	public static uint ENEMIES_TO_KILL = 5;
+
+	public static bool Boss = false;
 
 	// this should be called when a (basic) enemy is killed
 	public static void KilledEnemy()
@@ -17,11 +19,11 @@ public class GameManager
 		Debug.Log("Enemies killed: " + enemiesKilled);
 		if (enemiesKilled == ENEMIES_TO_KILL)
 		{
-			handleGameWon();
+			Boss = true;
 		}
 	}
 
-	private static void handleGameWon()
+	public static void handleGameWon()
 	{
 		Debug.Log("You won!!!");
 	}

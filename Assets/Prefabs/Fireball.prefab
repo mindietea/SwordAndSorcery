@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4833500019588907739}
   m_Layer: 0
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   fire: {fileID: 198570775080771182, guid: c70008338b49b7f46bc19adc50b5afd0, type: 3}
   explosion: {fileID: 198691720639519074, guid: e2bdfc5c063801e49b640c7babddaf89,
     type: 3}
+  timeout: 5
 --- !u!114 &4833500019588907739
 MonoBehaviour:
   m_ObjectHideFlags: 0

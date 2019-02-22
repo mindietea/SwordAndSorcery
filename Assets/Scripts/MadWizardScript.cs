@@ -37,10 +37,11 @@ public class MadWizardScript : MonoBehaviour
             anim.SetTrigger("Damage");
         }
 
-        if(!dead && GetComponent<HealthScript>().currentHealth <= 0) {
+        if(!dead && GetComponent<HealthScript>().currentHealth == 0) {
             dead = true;
             anim.SetBool("Death", true);
-            Debug.Log("Enemy Dead");
+            Debug.Log("BOSS Dead");
+            GameManager.handleGameWon();
         }
 
     }
@@ -57,8 +58,8 @@ public class MadWizardScript : MonoBehaviour
         }
 
 
-        if(this.transform.position.x >= (originalPos.x + outofrange) || this.transform.position.x <= (originalPos.x - outofrange)){
-         GetComponent<Rigidbody>().MovePosition(originalPos);
-        }
+        // if(this.transform.position.x >= (originalPos.x + outofrange) || this.transform.position.x <= (originalPos.x - outofrange)){
+        //  GetComponent<Rigidbody>().MovePosition(originalPos);
+        // }
     }
 }
