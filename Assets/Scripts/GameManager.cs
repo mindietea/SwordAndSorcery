@@ -10,6 +10,8 @@ public class GameManager
 	// the goal of the number of (basic) enemies to kill
 	public static uint ENEMIES_TO_KILL = 5;
 
+	public static bool Boss = false;
+
 	// this should be called when a (basic) enemy is killed
 	public static void KilledEnemy()
 	{
@@ -17,11 +19,11 @@ public class GameManager
 		Debug.Log("Enemies killed: " + enemiesKilled);
 		if (enemiesKilled == ENEMIES_TO_KILL)
 		{
-			handleGameWon();
+			Boss = true;
 		}
 	}
 
-	private static void handleGameWon()
+	public static void handleGameWon()
 	{
 		Debug.Log("You won!!!");
 	}
@@ -39,5 +41,11 @@ public class GameManager
     public static float GetDistanceToPlayer(GameObject other)
     {
         return Vector3.Distance(other.transform.position, GetPlayer().transform.position);
+    }
+
+    public static Vector3 GetWorldToScreenPoint(GameObject target)
+    {
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.transform.position);
+        return screenPos;
     }
 }
