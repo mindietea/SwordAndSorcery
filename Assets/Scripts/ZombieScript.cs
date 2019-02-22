@@ -32,7 +32,6 @@ public class ZombieScript : MonoBehaviour
         {
             PrevHealth = GetComponent<HealthScript>().currentHealth;
             anim.SetTrigger("Damage");
-            Destroy(gameObject, 10);
         }
     }
 
