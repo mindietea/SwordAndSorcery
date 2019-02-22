@@ -56,9 +56,9 @@
 		foreach (ContactPoint contact in collision.contacts){
 			// Debug.Log(contact.thisCollider.name + " hit " + contact.otherCollider.name);
 
-			if(contact.otherCollider.name == "Player" || contact.thisCollider.name == "Player"){
+			if(contact.otherCollider.tag == "Player" || contact.thisCollider.tag == "Player"){
 				// Debug.Log("This Collider, " + contact.thisCollider.name + " Collided with other Collider, " + contact.otherCollider.name);
-				// Debug.Log("Player Hit By Enemy");
+				Debug.Log("Player Hit By Enemy");
 				// Debug.Log("Printing: " + collision.gameObject);
 				CheckDamage(collision.gameObject);
 			}
@@ -70,10 +70,13 @@
 				CheckDamage(collision.gameObject);
 			}
 
-            if(contact.otherCollider.name == "Zombie" || contact.thisCollider.name == "Zombie")
+            if(contact.otherCollider.tag == "Zombie" || contact.thisCollider.tag == "Zombie")
             {
                 CheckDamage(collision.gameObject);
             }
+
+
+            // Debug.Log("This Collider, " + contact.thisCollider.name + " Collided with other Collider, " + contact.otherCollider.name);
         }
     }
 
@@ -84,15 +87,21 @@
 
 	private void CheckDamage(GameObject other)
 	{
-		// Deals damage if it is one of the damageTags
-		// Debug.Log(this.gameObject.name + " : " + other.gameObject.name + " " + other.tag);
-		if (lastDamaged >= damageCooldown && damageTags.Contains(other.tag))
+        // Deals damage if it is one of the damageTags
+        // Debug.Log(this.gameObject.name + " : " + other.gameObject.name + " " + other.tag);
+        
+        foreach (var item in damageTags)
         {
+            Debug.Log(item);
+        }
+        if (lastDamaged >= damageCooldown && damageTags.Contains(other.tag)){
+            Debug.Log("in if state");
             DamageScript dmgScript = other.GetComponent<DamageScript>();
 			if (dmgScript != null)
 			{
-				// Take Damage
-				InflictDamage(dmgScript.damage);
+            // Take Damage
+            Debug.Log("eeeeeeeeeeeeee");
+            InflictDamage(dmgScript.damage);
 				lastDamaged = 0.0f;
 
 				// Trigger damaged animation
@@ -103,7 +112,7 @@
 			}
 			else
 			{
-				Debug.LogWarning(gameObject.name + " should take damage, but the damaging object, " + other.name + " has no DamageScript attached to it.");
+				Debug.Log(gameObject.name + " should take damage, but the damaging object, " + other.name + " has no DamageScript attached to it.");
 			}
 		}
 	}
