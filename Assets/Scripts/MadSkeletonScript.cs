@@ -30,7 +30,6 @@ public class MadSkeletonScript : MonoBehaviour
 		anim.SetBool("Death", true);
 		GameManager.KilledEnemy();
 		Debug.Log("Enemy Dead");
-        Destroy(gameObject, 10);
 	}
 
     // Update is called once per frame
