@@ -24,6 +24,19 @@ public class MenuController : MonoBehaviour
 
 	// this function should be called when the player presses the menu
 	// button on the controller
+	public void TogglePauseGame()
+	{
+		isPaused = !isPaused;
+		if (isPaused)
+		{
+			PauseGame();
+		}
+		else
+		{
+			UnpauseGame();
+		}
+	}
+
 	private void PauseGame()
 	{
 		Debug.Log("Paused Game");
@@ -31,8 +44,6 @@ public class MenuController : MonoBehaviour
 		menuCanvas.SetActive(true);
 	}
 
-	// this function should be called when the game is paused
-	// and the player presses the menu button on the controller
 	private void UnpauseGame()
 	{
 		Debug.Log("Unpaused Game");
@@ -42,11 +53,11 @@ public class MenuController : MonoBehaviour
 
 	public void OnButtonClicks(string incomingName)
 	{
-		Debug.Log ("clicked on " + incomingName);
+		Debug.Log("Clicked on GUI button: " + incomingName);
 
 		switch (incomingName) {
 			case "NewGame":
-                UnpauseGame();
+                Debug.Log("Clicked New Game");
 				break;
 
 			case "Quit":
