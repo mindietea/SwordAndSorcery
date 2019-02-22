@@ -31,6 +31,6 @@ public class PlayerUI : MonoBehaviour
     {
         healthText.text = "Health: " + script.currentHealth.ToString();
         scoreText.text = "Score: " + GameManager.enemiesKilled.ToString();
-        remainingText.text = "Remaining Enemies: ";
+        remainingText.text = "Remaining Enemies: " + GameManager.ENEMIES_TO_KILL.ToString();
     }
 }

@@ -8,7 +8,7 @@ public class GameManager
 	public static uint enemiesKilled = 0;
 
 	// the goal of the number of (basic) enemies to kill
-	public const uint ENEMIES_TO_KILL = 5;
+	public static uint ENEMIES_TO_KILL = 5;
 
 	// this should be called when a (basic) enemy is killed
 	public static void KilledEnemy()
