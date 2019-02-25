@@ -13,7 +13,7 @@ TagManager:
   - EnemyWeapon
   - Poisoned
   - Zombie
-  - MagicScreen
+  - MenuCanvas
   layers:
   - Default
   - TransparentFX
