@@ -59,4 +59,15 @@ public class MadSkeletonScript : MonoBehaviour
             GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * runSpeed);
         }
     }
+
+    private void OnCollisionEnter(Collision collision){
+        foreach (ContactPoint contact in collision.contacts){
+            // Debug.Log(contact.thisCollider.name + " hit " + contact.otherCollider.name);
+
+            if((contact.thisCollider.name == "Sword" || contact.otherCollider.name == "Sword") && (contact.thisCollider.name == "TestSword" || contact.otherCollider.name == "TestSword")){
+                Debug.Log("Both Sword Hits");
+                anim.SetTrigger("Damage");
+            }
+        }
+    }
 }
