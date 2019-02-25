@@ -17,9 +17,16 @@ public class MagicDrawScript : MonoBehaviour
     private int WIDTH = 1024;
     private int HEIGHT = 1024;
 
+	public bool debugDraw = false;
+
     // Start is called before the first frame update
     void Start()
     {
+		Debug.Log("Magic screen initializing");
+		WIDTH = GetComponent<RawImage>().texture.width;
+		HEIGHT = GetComponent<RawImage>().texture.height;
+		Debug.Log("Magic screen w: " + WIDTH + " h: " + HEIGHT);
+
         colors = new Color32[WIDTH * HEIGHT];
 
         texture = new Texture2D(WIDTH, HEIGHT);
@@ -27,6 +34,9 @@ public class MagicDrawScript : MonoBehaviour
         GetComponent<RawImage>().texture = texture;
 
         ClearPixels();
+		if(debugDraw) {
+			TestDraw();
+		}
     }
 
     // Update is called once per frame

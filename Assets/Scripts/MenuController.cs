@@ -21,7 +21,7 @@ public class MenuController : MonoBehaviour
     void Start()
     {
         menuCanvas.SetActive(true);
-        playerCanvas.SetActive(false);
+        //playerCanvas.SetActive(false);
 		//PauseGame();
 		//GameManager.HandleGameLost();
     }
