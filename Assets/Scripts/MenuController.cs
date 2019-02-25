@@ -20,6 +20,8 @@ public class MenuController : MonoBehaviour
 	// Start is called before the first frame update
     void Start()
     {
+        menuCanvas.SetActive(true);
+        playerCanvas.SetActive(false);
 		//PauseGame();
 		//GameManager.HandleGameLost();
     }
@@ -89,7 +91,9 @@ public class MenuController : MonoBehaviour
 		{
 			case "NewGame":
                 Debug.Log("Clicked New Game");
-				break;
+                menuCanvas.SetActive(false);
+                playerCanvas.SetActive(true);
+                break;
 
 			case "Quit":
 				Application.Quit(); ///...asthetically speaking :>
