@@ -12,6 +12,8 @@ TagManager:
   - Enemy
   - EnemyWeapon
   - Poisoned
+  - Zombie
+  - MagicScreen
   layers:
   - Default
   - TransparentFX
