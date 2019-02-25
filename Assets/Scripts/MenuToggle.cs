@@ -23,18 +23,18 @@ public class MenuToggle : MonoBehaviour
 	// for capturing VRTK_ControllerEvents
 	void OnEnable()
 	{
-		controllerEvents.ButtonTwoReleased += ControllerEvents_ButtonTwoReleased;
+		controllerEvents.ButtonOneReleased += ControllerEvents_ButtonOneReleased;
 	}
 
 	// for capturing VRTK_ControllerEvents
 	void OnDisable()
 	{
-		controllerEvents.ButtonTwoReleased -= ControllerEvents_ButtonTwoReleased;
+		controllerEvents.ButtonOneReleased -= ControllerEvents_ButtonOneReleased;
 	}
 
-	private void ControllerEvents_ButtonTwoReleased(object sender, ControllerInteractionEventArgs e)
+	private void ControllerEvents_ButtonOneReleased(object sender, ControllerInteractionEventArgs e)
 	{
-		Debug.Log("MenuToggle got ButtonTwoReleased");
+		Debug.Log("MenuToggle got ButtonOneReleased");
 		menuController.TogglePauseGame();
 	}
 }

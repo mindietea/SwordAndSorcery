@@ -267,7 +267,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'B - Toggle Menu
+  m_Text: 'A - Toggle Menu
 
     Right stick - Move around
 
@@ -275,7 +275,7 @@ MonoBehaviour:
 
     Trigger - Action
 
-    Hold A - Reset game'
+    Hold B - Reset game'
 --- !u!222 &449424873
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -418,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   right: {fileID: 1225310920}
   left: {fileID: 1225310921}
+  menuController: {fileID: 108752240}
   holdToReloadTime: 2
 --- !u!4 &829280737
 Transform:
@@ -975,21 +976,6 @@ MonoBehaviour:
   interactUse: {fileID: 0}
   customOrigin: {fileID: 0}
   controller: {fileID: 0}
---- !u!114 &1078257455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1078257451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3417e3d240cd4085914902c53d01d31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controllerEvents: {fileID: 1225310920}
-  menuController: {fileID: 108752240}
-  holdToReloadTime: 2
 --- !u!1001 &1173538948
 PrefabInstance:
   m_ObjectHideFlags: 0
