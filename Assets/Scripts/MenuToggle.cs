@@ -6,6 +6,8 @@ public class MenuToggle : MonoBehaviour
 	public VRTK_ControllerEvents controllerEvents;
 	public MenuController menuController;
 
+	public float holdToReloadTime = 2.0f;
+
 	// Start is called before the first frame update
     void Start()
     {
