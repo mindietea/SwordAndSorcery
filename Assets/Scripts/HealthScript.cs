@@ -74,6 +74,13 @@
             {
                 CheckDamage(collision.gameObject);
             }
+
+             if(contact.otherCollider.name == "Bone_L_hand" || contact.thisCollider.name == "Bone_L_hand" || contact.otherCollider.name == "Bone_R_hand" || contact.thisCollider.name == "Bone_R_hand")
+            {
+                CheckDamage(collision.gameObject);
+            }
+
+
         }
     }
 
