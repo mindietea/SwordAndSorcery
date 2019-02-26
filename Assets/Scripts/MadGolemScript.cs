@@ -45,7 +45,7 @@ public class MadGolemScript : MonoBehaviour
             dead = true;
             anim.SetBool("Death", true);
             Debug.Log("BOSS Dead");
-            GameManager.handleGameWon();
+            //GameManager.handleGameWon();
         }
 
     }
