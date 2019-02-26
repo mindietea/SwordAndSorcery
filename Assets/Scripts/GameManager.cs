@@ -69,4 +69,9 @@ public class GameManager
     {
         return Camera.main.WorldToScreenPoint(target.transform.position);
     }
+
+    public static GameObject GetMagicScreen()
+    {
+        return GameObject.FindGameObjectWithTag("MagicScreen");
+    }
 }

@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 692859037}
   m_Layer: 0
   m_Name: MagicIntersectBox
-  m_TagString: Untagged
+  m_TagString: MagicDrawPlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -720,6 +720,7 @@ MonoBehaviour:
   drawFrequency: 0.5
   magicDrawPlane: {fileID: 692859035}
   pointer: {fileID: 1078257452}
+  magicDrawScript: {fileID: 0}
 --- !u!4 &829280737
 Transform:
   m_ObjectHideFlags: 0

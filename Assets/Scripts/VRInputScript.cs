@@ -19,11 +19,13 @@ public class VRInputScript : MonoBehaviour
     public float drawFrequency = 0.5f;
     public GameObject magicDrawPlane;
     public VRTK_StraightPointerRenderer pointer;
+    public MagicDrawScript magicDrawScript;
+    private IEnumerator currentDrawRoutine;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-        StartCoroutine(UpdateDrawing());
+        magicDrawScript = GameManager.GetMagicScreen().GetComponent<MagicDrawScript>();
 	}
 
 	// Update is called once per frame
@@ -31,18 +33,6 @@ public class VRInputScript : MonoBehaviour
 	{
 
 	}
-
-    private IEnumerator UpdateDrawing()
-    {
-        while (true)
-        {
-            RaycastHit hit;
-            Physics.Raycast(pointer.GetPointerOrigin().position, pointer.GetPointerOrigin().forward, out hit);
-            Debug.Log("Tex coords hit: " + hit.textureCoord);
-
-            yield return new WaitForSeconds(drawFrequency);
-        }
-    }
 
     // for capturing VRTK_ControllerEvents
     void OnEnable()
@@ -53,7 +43,8 @@ public class VRInputScript : MonoBehaviour
 		right.ButtonTwoReleased += ControllerEvents_ButtonTwoReleased;
 
         right.TriggerPressed += ControllerEvents_TriggerPressed;
-	}
+        right.TriggerPressed += ControllerEvents_TriggerReleased;
+    }
 
 	void OnDisable() {
 		
@@ -63,8 +54,9 @@ public class VRInputScript : MonoBehaviour
 		right.ButtonTwoReleased -= ControllerEvents_ButtonTwoReleased;
 
         right.TriggerPressed -= ControllerEvents_TriggerPressed;
+        right.TriggerPressed -= ControllerEvents_TriggerReleased;
 
-	}
+    }
 
     private void ControllerEvents_TriggerPressed(object sender, ControllerInteractionEventArgs e)
     {
@@ -76,10 +68,41 @@ public class VRInputScript : MonoBehaviour
         // Rotate to face controller
         magicDrawPlane.transform.LookAt(pointer.GetPointerOrigin().position, pointer.GetPointerOrigin().up);
         magicDrawPlane.transform.Rotate(new Vector3(90, 0, 0));
-        StartCoroutine(UpdateDrawing());
+        currentDrawRoutine = UpdateDrawing();
+        StartCoroutine(currentDrawRoutine);
     }
 
-	private void ControllerEvents_ButtonOneReleased(object sender, ControllerInteractionEventArgs e)
+    private void ControllerEvents_TriggerReleased(object sender, ControllerInteractionEventArgs e)
+    {
+        StopCoroutine(currentDrawRoutine);
+    }
+
+    private IEnumerator UpdateDrawing()
+    {
+        while (true)
+        {
+            Debug.Log("Test");
+            Ray ray = new Ray(pointer.GetPointerOrigin().position, pointer.GetPointerOrigin().forward);
+            RaycastHit[] hits;
+            hits = Physics.RaycastAll(ray);
+
+            for (int i = 0; i < hits.Length; i++)
+            {
+                RaycastHit hit = hits[i];
+                if (hit.collider.gameObject.tag == "MagicDrawPlane")
+                {
+                    Debug.Log("Tex coords hit: " + hit.textureCoord);
+                    //magicDrawScript.DrawAt(hit.textureCoord.x, hit.textureCoord.y);
+                }
+
+            }
+
+            yield return new WaitForSeconds(drawFrequency);
+        }
+    }
+
+
+    private void ControllerEvents_ButtonOneReleased(object sender, ControllerInteractionEventArgs e)
 	{
 		Debug.Log("MenuToggle got ButtonOneReleased");
 		menuController.TogglePauseGame();

@@ -74,6 +74,11 @@ public class MagicDrawScript : MonoBehaviour
         }
     }
 
+    public void DrawAt(float xf, float yf)
+    {
+        DrawAt(Mathf.Round(xf * WIDTH), Mathf.Round(yf * HEIGHT));
+    }
+
     // MUST call to apply changes made with DrawAt()
     public void ApplyDraw()
     {
