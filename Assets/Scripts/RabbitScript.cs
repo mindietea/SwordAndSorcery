@@ -11,10 +11,14 @@ public class RabbitScript : MonoBehaviour
 
     private Animator anim;
 
+    AudioSource explosionAudio;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,6 +46,7 @@ public class RabbitScript : MonoBehaviour
         {
             anim.SetBool("Dead", true);
             Instantiate(explosion, gameObject.transform.position + Vector3.up, Quaternion.identity);
+            explosionAudio.Play();
         }
     }
 }

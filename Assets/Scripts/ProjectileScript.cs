@@ -8,11 +8,12 @@ public class ProjectileScript : MonoBehaviour
     public ParticleSystem explosion;
     public float timeout = 5.0f;
     private float time = 0.0f;
+    AudioSource explosionAudio;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,6 +33,8 @@ public class ProjectileScript : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
+        explosionAudio.Play();
+        
         Destroy(gameObject);
     }
 }
