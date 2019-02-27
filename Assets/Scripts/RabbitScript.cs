@@ -18,7 +18,7 @@ public class RabbitScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
 
-        audioSource = GetComponent<AudioSource>();
+        explosionAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

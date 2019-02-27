@@ -9,11 +9,12 @@ public class ProjectileScript : MonoBehaviour
     public float timeout = 5.0f;
     private float time = 0.0f;
     AudioSource explosionAudio;
+    Rigidbody body;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        explosionAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -34,7 +35,6 @@ public class ProjectileScript : MonoBehaviour
     {
         Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
         explosionAudio.Play();
-        
         Destroy(gameObject);
     }
 }
