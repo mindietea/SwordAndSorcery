@@ -32,6 +32,7 @@ public class ZombieScript : MonoBehaviour
         {
             PrevHealth = GetComponent<HealthScript>().currentHealth;
             anim.SetTrigger("Damage");
+            GameManager.KilledEnemy();
         }
     }
 

@@ -72,6 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4357438141099556}
   - component: {fileID: 7466809984152056443}
+  - component: {fileID: 1615940851951992327}
   m_Layer: 8
   m_Name: Bone_R_hand
   m_TagString: EnemyWeapon
@@ -107,6 +108,19 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1615940851951992327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061180090682186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0f23b47ed480d4ab552d6f573a5fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1082838362204688
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,6 +875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4589767287882966}
   - component: {fileID: 8162352709997231922}
+  - component: {fileID: 7623005363933968967}
   m_Layer: 8
   m_Name: Bone_L_hand
   m_TagString: EnemyWeapon
@@ -896,6 +911,19 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7623005363933968967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445194356803208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0f23b47ed480d4ab552d6f573a5fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1468048935839478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1905,9 +1933,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4490680996585678}
   - component: {fileID: 137987583405792186}
+  - component: {fileID: 267430895404470557}
+  - component: {fileID: 3624456482373605088}
   m_Layer: 8
   m_Name: rockgolem
-  m_TagString: Untagged
+  m_TagString: EnemyWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1993,6 +2023,33 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.238531, y: 0.6018176, z: 0.010920286}
     m_Extent: {x: 3.2441177, y: 1.9063859, z: 4.3457813}
   m_DirtyAABB: 0
+--- !u!64 &267430895404470557
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917796240963810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
+--- !u!114 &3624456482373605088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917796240963810}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e0f23b47ed480d4ab552d6f573a5fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!1 &1919075281582490
 GameObject:
   m_ObjectHideFlags: 0
