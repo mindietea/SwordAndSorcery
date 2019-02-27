@@ -12,63 +12,88 @@ public class MagicDrawScript : MonoBehaviour
     public int drawRadius = 20;
     public Color drawColor = Color.black;
 
+    Color32[] colors;
+
+    private int WIDTH = 1024;
+    private int HEIGHT = 1024;
+
+	public bool debugDraw = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        texture = new Texture2D(1024, 1024);
+		Debug.Log("Magic screen initializing");
+		WIDTH = GetComponent<RawImage>().texture.width;
+		HEIGHT = GetComponent<RawImage>().texture.height;
+		Debug.Log("Magic screen w: " + WIDTH + " h: " + HEIGHT);
+
+        colors = new Color32[WIDTH * HEIGHT];
+
+        texture = new Texture2D(WIDTH, HEIGHT);
+        texture.wrapMode = TextureWrapMode.Clamp;
+        GetComponent<RawImage>().texture = texture;
 
         ClearPixels();
+		if(debugDraw) {
+			TestDraw();
+		}
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        Debug.Log("Mouse pos:" + Input.mousePosition);
+        //Debug.Log("Mouse pos:" + Input.mousePosition);
     }
 
-    void ClearPixels()
+    public void ClearPixels()
     {
-        for (int y = 0; y < texture.height; y++)
-        {
-            for (int x = 0; x < texture.width; x++)
-            {
-                Color color = Color.clear;
-                texture.SetPixel(x, y, color);
-            }
-        }
-
-        texture.Apply();
-    }
-
-    void DrawAt(int x, int y)
-    {
-        for(int i = x - drawRadius; i < x + drawRadius; i++)
-        {
-            for (int j = y - drawRadius; j < y + drawRadius; j++)
-            {
-                texture.SetPixel(i, j, drawColor);
-            }
-        }
-
-        texture.Apply();
-    }
-
-    void DrawPixels()
-    {
-        GetComponent<RawImage>().texture = texture;
+        Color color = Color.clear;
 
         for (int y = 0; y < texture.height; y++)
         {
             for (int x = 0; x < texture.width; x++)
             {
-                if((x & y) == 0)
-                {
-                    Color color = Color.black;
-                    texture.SetPixel(x, y, color);
-                }
+                colors[x*WIDTH + y] = color;
             }
         }
+
+        texture.SetPixels32(colors);
+
         texture.Apply();
+    }
+
+    public void DrawAt(int x, int y)
+    {
+        for(int i = Mathf.Max(0, x - drawRadius); i < Mathf.Min(WIDTH, x + drawRadius); i++)
+        {
+            for (int j = Mathf.Max(0, y - drawRadius); j < Mathf.Min(HEIGHT, y + drawRadius); j++)
+            {
+                colors[j * WIDTH + i] = drawColor;
+            }
+        }
+    }
+
+    public void DrawAt(float xf, float yf)
+    {
+        DrawAt(Mathf.Round(xf * WIDTH), Mathf.Round(yf * HEIGHT));
+    }
+
+    // MUST call to apply changes made with DrawAt()
+    public void ApplyDraw()
+    {
+        texture.SetPixels32(colors);
+        texture.Apply();
+    }
+
+    public void TestDraw()
+    {
+        Debug.Log("Start TextDraw");
+        for (int i = 0; i < WIDTH; i++)
+        {
+            DrawAt(i, i);
+        }
+
+        ApplyDraw();
     }
 }

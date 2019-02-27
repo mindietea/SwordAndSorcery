@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameManager
 {
+	// a reference to the menuController so that the GameManager can display the
+	// victory/defeat screens
+	private static MenuController menuController = null;
+
 	// how many (basic) enemies have been killed so far
 	public static uint enemiesKilled = 0;
 
@@ -23,14 +27,32 @@ public class GameManager
 		}
 	}
 
-	public static void handleGameWon()
+	// need to use a getter like this so the FindGameObjectWithTag is called
+	// at runtime when MenuCanvas has been loaded
+	private static MenuController GetMenuController()
+	{
+		if (menuController == null)
+		{
+			GameObject lol = GameObject.FindGameObjectWithTag("MenuCanvas");
+			menuController = GameObject.FindGameObjectWithTag("MenuCanvas").GetComponent<MenuController>();
+		}
+		return menuController;
+	}
+
+	public static void HandleGameWon()
 	{
 		Debug.Log("You won!!!");
+		MenuController mc = GetMenuController();
+		mc.SetMenuImage(MenuController.MenuMode.VICTORY);
+		mc.PauseGame();
 	}
 
 	public static void HandleGameLost()
 	{
 		Debug.Log("You died :( epic fail");
+		MenuController mc = GetMenuController();
+		mc.SetMenuImage(MenuController.MenuMode.DEFEAT);
+		mc.PauseGame();
 	}
 
 	public static GameObject GetPlayer()
@@ -45,7 +67,11 @@ public class GameManager
 
     public static Vector3 GetWorldToScreenPoint(GameObject target)
     {
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(target.transform.position);
-        return screenPos;
+        return Camera.main.WorldToScreenPoint(target.transform.position);
+    }
+
+    public static GameObject GetMagicScreen()
+    {
+        return GameObject.FindGameObjectWithTag("MagicScreen");
     }
 }

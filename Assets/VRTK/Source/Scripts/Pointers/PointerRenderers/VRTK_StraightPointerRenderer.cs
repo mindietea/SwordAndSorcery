@@ -195,6 +195,13 @@ namespace VRTK
             }
         }
 
+        // Mindy added this to find the pointer ray
+        public Transform GetPointerOrigin()
+        {
+            Transform trans = GetOrigin();
+            return trans;
+        }
+
         protected virtual float CastRayForward()
         {
             Transform origin = GetOrigin();
