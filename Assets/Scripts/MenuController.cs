@@ -18,16 +18,17 @@ public class MenuController : MonoBehaviour
 	public GameObject menuImage; // the child of MenuCanvas
 
     public AudioSource voiceOverSource;
+    bool introPlayed = false;
 
 	// Start is called before the first frame update
     void Start()
     {
-        menuCanvas.SetActive(true);
+        this.PauseGame();
         //playerCanvas.SetActive(false);
-		//PauseGame();
-		//GameManager.HandleGameLost();
+        //PauseGame();
+        //GameManager.HandleGameLost();
     }
-
+  
     // Update is called once per frame
     void Update()
     {
@@ -58,9 +59,16 @@ public class MenuController : MonoBehaviour
 
 	public void UnpauseGame()
 	{
-		Debug.Log("Unpaused Game");
+        if (!introPlayed)
+        {
+            Debug.Log("Playing intro");
+            voiceOverSource.Play();
+            introPlayed = true;
+        }
+        Debug.Log("Unpaused Game");
 		Time.timeScale = 1;
 		menuCanvas.SetActive(false);
+
 	}
 
 	public enum MenuMode {PAUSE, VICTORY, DEFEAT};

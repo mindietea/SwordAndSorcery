@@ -23,6 +23,8 @@ public class ProjectileScript : MonoBehaviour
         time += Time.deltaTime;
         if(time >= timeout)
         {
+
+            explosionAudio.Play();
             Destroy(gameObject);
         }
         else
@@ -33,8 +35,8 @@ public class ProjectileScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
         explosionAudio.Play();
+        Instantiate(explosion, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
