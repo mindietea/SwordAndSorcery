@@ -16,6 +16,10 @@
 		public int currentHealth = 100;
 		public int maxHealth = 100;
 
+		// audio
+		public AudioClip deathClip;
+		AudioSource audioSource;
+
 
 	// Number of seconds between instances of taking damage
 	public float damageCooldown = 0.2f;
@@ -29,6 +33,11 @@
 	// Used to affect hit indicator
 	private Animator anim;
 	private int damageHash = Animator.StringToHash("Damage");
+
+	void Start() 
+	{
+		audioSource = GetComponent <AudioSource> ();
+	}
 
 	void Update()
 	{
@@ -44,6 +53,11 @@
 	{
 		currentHealth = Mathf.Max(0, currentHealth -= dmg);
         Debug.Log(this.gameObject.name + " Health: " + currentHealth);
+
+		if (audioSource != null) {
+			if(currentHealth <= 0) audioSource.clip = deathClip;
+			audioSource.Play();
+		}
     }
 
     public void HealDamage(int heal)
