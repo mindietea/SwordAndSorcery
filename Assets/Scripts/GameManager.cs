@@ -21,7 +21,7 @@ public class GameManager
 	{
 		enemiesKilled++;
 		Debug.Log("Enemies killed: " + enemiesKilled);
-		if (enemiesKilled == ENEMIES_TO_KILL)
+		if (enemiesKilled >= ENEMIES_TO_KILL)
 		{
 			Boss = true;
 		}

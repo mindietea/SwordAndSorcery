@@ -38,7 +38,7 @@ public class RabbitScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!anim.GetBool("Dead") && collision.collider.gameObject.name == "Player")
+        if (!anim.GetBool("Dead") && collision.collider.gameObject.tag == "Player")
         {
             anim.SetBool("Dead", true);
             Instantiate(explosion, gameObject.transform.position + Vector3.up, Quaternion.identity);

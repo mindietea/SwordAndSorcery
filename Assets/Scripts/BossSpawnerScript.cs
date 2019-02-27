@@ -31,7 +31,9 @@ public class BossSpawnerScript : MonoBehaviour
 
         if (audioSource != null)
         {
+            audioSource.Stop();
             audioSource.clip = epicMusic;
+            audioSource.Play();
         }
         else
         {
