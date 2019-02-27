@@ -53,52 +53,26 @@
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		foreach (ContactPoint contact in collision.contacts){
-			// Debug.Log(contact.thisCollider.name + " hit " + contact.otherCollider.name);
-
-			if(contact.otherCollider.name == "Player" || contact.thisCollider.name == "Player"){
-				// Debug.Log("This Collider, " + contact.thisCollider.name + " Collided with other Collider, " + contact.otherCollider.name);
-				// Debug.Log("Player Hit By Enemy");
-				// Debug.Log("Printing: " + collision.gameObject);
-				CheckDamage(collision.gameObject);
-			}
-
-			if(contact.otherCollider.name == "Bip001 Spine1" || contact.thisCollider.name == "Bip001 Spine1"){
-				// Debug.Log("This Collider, " + contact.thisCollider.name + " Collided with other Collider, " + contact.otherCollider.name);
-				// Debug.Log("Enemy Hit By Player");
-				// Debug.Log("Printing: " + collision.gameObject);
-				CheckDamage(collision.gameObject);
-			}
-
-            if(contact.otherCollider.name == "Zombie" || contact.thisCollider.name == "Zombie")
-            {
-                CheckDamage(collision.gameObject);
-            }
-
-             if(contact.otherCollider.name == "Bone_L_hand" || contact.thisCollider.name == "Bone_L_hand" || contact.otherCollider.name == "Bone_R_hand" || contact.thisCollider.name == "Bone_R_hand")
-            {
-                CheckDamage(collision.gameObject);
-            }
-
-
-        }
+        CheckDamage(collision.gameObject);
+        
     }
 
-	// private void OnTriggerEnter(Collider other)
-	// {
-	// 	CheckDamage(other.gameObject);
-	// }
+	private void OnTriggerEnter(Collider other)
+	{
+		CheckDamage(other.gameObject);
+	}
 
 	private void CheckDamage(GameObject other)
 	{
 		// Deals damage if it is one of the damageTags
-		// Debug.Log(this.gameObject.name + " : " + other.gameObject.name + " " + other.tag);
+		Debug.Log(this.gameObject.name + " : " + other.gameObject.name + " " + other.tag);
 		if (lastDamaged >= damageCooldown && damageTags.Contains(other.tag))
         {
             DamageScript dmgScript = other.GetComponent<DamageScript>();
 			if (dmgScript != null)
 			{
-				// Take Damage
+                // Take Damage
+                Debug.Log("hit");
 				InflictDamage(dmgScript.damage);
 				lastDamaged = 0.0f;
 
