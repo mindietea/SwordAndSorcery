@@ -79,7 +79,6 @@
 	private void CheckDamage(GameObject other)
 	{
 		// Deals damage if it is one of the damageTags
-		Debug.Log(this.gameObject.name + " : " + other.gameObject.name + " " + other.tag);
 		if (lastDamaged >= damageCooldown && damageTags.Contains(other.tag))
         {
             DamageScript dmgScript = other.GetComponent<DamageScript>();

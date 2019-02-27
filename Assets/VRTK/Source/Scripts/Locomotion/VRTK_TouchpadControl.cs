@@ -52,7 +52,6 @@ namespace VRTK
 
         protected override void ControlFixedUpdate()
         {
-            Debug.Log("currentAxis: " + currentAxis.x + ", " + currentAxis.y);
 
             ModifierButtonActive();
             if (OutsideDeadzone(currentAxis.x, axisDeadzone.x) || currentAxis.x == 0f)

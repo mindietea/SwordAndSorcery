@@ -16,6 +16,7 @@ TagManager:
   - MenuCanvas
   - MagicScreen
   - MagicDrawPlane
+  - UiTint
   layers:
   - Default
   - TransparentFX

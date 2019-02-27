@@ -39,27 +39,41 @@ public class MushroomMonsterScript : MonoBehaviour
     public int poisonDamage = 2;
     // Timer for poison
     public float poisonTimer = 0.0f;
+    public float burstTimeRandomness = 1.0f;
 
     // Should be Private but we make public for debugging :p
     public bool sporesActive = false;
-    public float sporeTimer = 999.0f;
+    public float sporeTimer;
 
-
-Animation anim;
+    Animation anim;
 
     void Start()
     {
+        uiTint.GetComponent<Image>().color = normalColor;
+
         poisonAnimationTimer = 0.0f;
         poisonTimer = 0.0f;
         poisoned = false;
         sporesActive = false;
         anim = GetComponent<Animation>();
         IdleAni();
+
+        sporeTimer = Random.Range(-burstTimeRandomness, burstTimeRandomness);
+
+        uiTint = GameObject.FindGameObjectWithTag("UiTint");
+
     }
 
     void Update()
     {
+ 
+
         sporeTimer += Time.deltaTime;
+
+        if (GetComponent<HealthScript>().currentHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
 
         if(poisoned)
         {
@@ -75,13 +89,14 @@ Animation anim;
         if(sporeTimer >= sporeDuration)
         {
             sporesActive = false;
+            IdleAni();
         }
 
-        if(sporeTimer >= sporeFrequency)
+        if (sporeTimer >= sporeFrequency)
         {
             sporesActive = true;
             AttackAni();
-            sporeTimer = 0.0f;
+            sporeTimer = Random.Range(-burstTimeRandomness, burstTimeRandomness);
             GetComponent<ParticleSystem>().Play();
         }
 
@@ -95,6 +110,7 @@ Animation anim;
         {
             EndPoison();
         }
+
     }
 
     private void StartPoison()
@@ -130,6 +146,7 @@ Animation anim;
         poisonAnimationOn = false;
         uiTint.GetComponent<Image>().color = normalColor;
         poisonTimer = 0.0f;
+
     }
 
     void OnDrawGizmosSelected()

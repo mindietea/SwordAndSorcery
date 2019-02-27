@@ -1334,8 +1334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fef0d1e73a67714795fb7e9a1f1e31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
-  maxHealth: 100
+  currentHealth: 40
+  maxHealth: 40
   deathClip: {fileID: 8300000, guid: 1d4840678e677424b8921716c72397ea, type: 3}
   damageCooldown: 0.2
   lastDamaged: 9999
