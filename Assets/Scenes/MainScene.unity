@@ -2451,6 +2451,11 @@ PrefabInstance:
       propertyPath: maximumSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3966083639341234027, guid: a4f5f704d466e064ea6518c9e7e11a8f,
+        type: 3}
+      propertyPath: stepDropThreshold
+      value: 999999
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f5f704d466e064ea6518c9e7e11a8f, type: 3}
 --- !u!114 &1225310920 stripped
