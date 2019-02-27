@@ -17,6 +17,8 @@ public class MenuController : MonoBehaviour
 	public Texture defeatTexture;
 	public GameObject menuImage; // the child of MenuCanvas
 
+    public AudioSource voiceOverSource;
+
 	// Start is called before the first frame update
     void Start()
     {
@@ -93,6 +95,7 @@ public class MenuController : MonoBehaviour
                 Debug.Log("Clicked New Game");
                 menuCanvas.SetActive(false);
                 playerCanvas.SetActive(true);
+                voiceOverSource.PlayDelayed(1);
                 break;
 
 			case "Quit":
