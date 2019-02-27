@@ -12,7 +12,7 @@ public class GameManager
 	public static uint enemiesKilled = 0;
 
 	// the goal of the number of (basic) enemies to kill
-	public static uint ENEMIES_TO_KILL = 5;
+	public static uint ENEMIES_TO_KILL = 1;
 
 	public static bool Boss = false;
 

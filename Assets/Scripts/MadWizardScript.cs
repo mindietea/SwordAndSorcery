@@ -58,8 +58,9 @@ public class MadWizardScript : MonoBehaviour
         }
 
 
-        // if(this.transform.position.x >= (originalPos.x + outofrange) || this.transform.position.x <= (originalPos.x - outofrange)){
-        //  GetComponent<Rigidbody>().MovePosition(originalPos);
-        // }
+        if(this.transform.position.x >= (originalPos.x + outofrange) || this.transform.position.x <= (originalPos.x - outofrange) || this.transform.position.z >= (originalPos.z + outofrange) || this.transform.position.z <= (originalPos.z - outofrange))
+        {
+        GetComponent<Rigidbody>().MovePosition(originalPos);
+        }
     }
 }
