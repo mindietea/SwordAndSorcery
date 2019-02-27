@@ -10,6 +10,7 @@ public class FireProjectileScript : VRTK.VRTK_InteractableObject
     public Rigidbody projectile;
     public Transform spawnpoint;
     public int speed = 10;
+    AudioSource shootAudio;
 
     private VRTK.VRTK_ControllerEvents controllerEvents;
 
@@ -18,6 +19,7 @@ public class FireProjectileScript : VRTK.VRTK_InteractableObject
         base.Grabbed(currentGrabbingObject);
         Debug.Log("Grabbed");
         controllerEvents = currentGrabbingObject.GetComponent<VRTK.VRTK_ControllerEvents>();
+        shootAudio = GetComponent<AudioSource> ();
     }
 
     public override void StartUsing(VRTK.VRTK_InteractUse currentUsingObject)
@@ -37,5 +39,6 @@ public class FireProjectileScript : VRTK.VRTK_InteractableObject
         fireball = Instantiate(projectile, spawnpoint.position ,
             spawnpoint.rotation);
         fireball.velocity = spawnpoint.TransformDirection(Vector3.up * speed);
+        shootAudio.Play();
     }
 }
