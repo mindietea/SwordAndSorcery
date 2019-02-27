@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028377, g: 0.22571409, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -153,6 +153,18 @@ PrefabInstance:
       propertyPath: modelAliasRightController
       value: 
       objectReference: {fileID: 35832360}
+    - target: {fileID: 4544606604026690, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.334
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544606604026690, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544606604026690, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 4000011368645488, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -197,21 +209,9 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.83
       objectReference: {fileID: 0}
-    - target: {fileID: 4000010114616428, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 4544606604026690, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.334
-      objectReference: {fileID: 0}
-    - target: {fileID: 4544606604026690, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 4544606604026690, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.04
+    - target: {fileID: 1000014262144886, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1000010207334600, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
       propertyPath: m_TagString
@@ -221,12 +221,12 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -10.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4000010114616428, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4000012660741642, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1000014262144886, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -535,6 +535,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 5067604527661065989, guid: 9a763c773ef7fff45b44fbb1a796b309,
+        type: 3}
+      propertyPath: clipOnGrab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5067604527661065989, guid: 9a763c773ef7fff45b44fbb1a796b309,
+        type: 3}
+      propertyPath: cancelOnUngrab
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3578972608760730817, guid: 9a763c773ef7fff45b44fbb1a796b309,
         type: 3}
       propertyPath: m_UseGravity
@@ -558,16 +568,6 @@ PrefabInstance:
     - target: {fileID: 1983850034040806883, guid: 9a763c773ef7fff45b44fbb1a796b309,
         type: 3}
       propertyPath: sdkOverrides.Array.data[1].scale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067604527661065989, guid: 9a763c773ef7fff45b44fbb1a796b309,
-        type: 3}
-      propertyPath: clipOnGrab
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5067604527661065989, guid: 9a763c773ef7fff45b44fbb1a796b309,
-        type: 3}
-      propertyPath: cancelOnUngrab
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1554,11 +1554,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1.500001
       objectReference: {fileID: 0}
-    - target: {fileID: 3568288086565813583, guid: addc80c6a3422754cac166e3aa367bd0,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9016168997956955654, guid: addc80c6a3422754cac166e3aa367bd0,
         type: 3}
       propertyPath: nearTouchHighlight.r
@@ -1588,6 +1583,11 @@ PrefabInstance:
         type: 3}
       propertyPath: grabHighlight.b
       value: 0.13536787
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568288086565813583, guid: addc80c6a3422754cac166e3aa367bd0,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: addc80c6a3422754cac166e3aa367bd0, type: 3}
