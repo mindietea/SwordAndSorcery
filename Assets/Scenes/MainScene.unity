@@ -197,6 +197,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3915890457009124000, guid: 14aad7e8811377446a51b3a8176582f8,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a1d1251bd185bd548b0d5894850132bd, type: 3}
+    - target: {fileID: 4271837839260114076, guid: 14aad7e8811377446a51b3a8176582f8,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271837839260114078, guid: 14aad7e8811377446a51b3a8176582f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14aad7e8811377446a51b3a8176582f8, type: 3}
 --- !u!114 &108752240 stripped
@@ -655,8 +670,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fef0d1e73a67714795fb7e9a1f1e31a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 1000
-  maxHealth: 1000
+  currentHealth: 100
+  maxHealth: 100
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   damageCooldown: 0.2
   lastDamaged: 9999
@@ -771,6 +786,106 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuController: {fileID: 108752240}
+  voiceOverAudio: {fileID: 519688779}
+  youMakeLaughClip: {fileID: 8300000, guid: bbb8b98433e4ffa4f873837a007b22ae, type: 3}
+  endClip: {fileID: 8300000, guid: ea9a57535fb543044b4464015559becd, type: 3}
+  victoryClip: {fileID: 8300000, guid: 8cf5da7d8036b0e4fae0180f35ef3a2f, type: 3}
+--- !u!82 &344049245
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344049241}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!108 &344049248
 Light:
   m_ObjectHideFlags: 0
@@ -2277,6 +2392,71 @@ Transform:
   m_Father: {fileID: 1051271129}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1071672654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1317079180512690291, guid: e12296d729015254ebc026d5b4641b8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1317079179250031791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1071672659 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2937912876221065886, guid: e12296d729015254ebc026d5b4641b8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1317079179250031791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071672654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18055ba762aa3994f9c10208cd088bc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1071672660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8221177723976355869, guid: e12296d729015254ebc026d5b4641b8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1317079179250031791}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071672654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec2ac476f2fc9a45a4e69712580a603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1071672665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071672654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c59f89c731c8247bcdc4efcf013d91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableWhenIdle: 1
+  allowedNearTouchControllers: 0
+  allowedTouchControllers: 0
+  ignoredColliders: []
+  isGrabbable: 1
+  holdButtonToGrab: 0
+  stayGrabbedOnTeleport: 1
+  validDrop: 1
+  grabOverrideButton: 0
+  allowedGrabControllers: 0
+  grabAttachMechanicScript: {fileID: 1071672660}
+  secondaryGrabActionScript: {fileID: 1071672659}
+  isUsable: 0
+  holdButtonToUse: 1
+  useOnlyIfGrabbed: 0
+  pointerActivatesUseAction: 0
+  useOverrideButton: 0
+  allowedUseControllers: 0
+  objectHighlighter: {fileID: 0}
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  usingState: 0
+  voiceOverAudio: {fileID: 519688779}
+  youMakeLaughClip: {fileID: 8300000, guid: 526146450f4521c448c8ae95afd6fb24, type: 3}
 --- !u!1 &1078257451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3966083640931074859, guid: a4f5f704d466e064ea6518c9e7e11a8f,
@@ -4524,5 +4704,16 @@ PrefabInstance:
       propertyPath: uiTint
       value: 
       objectReference: {fileID: 834582616}
-    m_RemovedComponents: []
+    - target: {fileID: 34571547747977481, guid: e12296d729015254ebc026d5b4641b8a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429534207559234360, guid: e12296d729015254ebc026d5b4641b8a,
+        type: 3}
+      propertyPath: clipOnGrab
+      value: 
+      objectReference: {fileID: 8300000, guid: 526146450f4521c448c8ae95afd6fb24, type: 3}
+    m_RemovedComponents:
+    - {fileID: 34571547747977481, guid: e12296d729015254ebc026d5b4641b8a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e12296d729015254ebc026d5b4641b8a, type: 3}
