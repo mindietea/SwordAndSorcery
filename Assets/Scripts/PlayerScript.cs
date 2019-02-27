@@ -1,17 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
 	private bool dead = false;
-
-	private void HandleDeath()
-	{
-		dead = true;
-		Debug.Log("Player Dead");
-		GameManager.HandleGameLost();
-	}
+    public MenuController menuController;
 
 	// Start is called before the first frame update
     void Start()
@@ -23,7 +18,21 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
 		if(!dead && GetComponent<HealthScript>().currentHealth <= 0) {
-            HandleDeath();
+            GameManager.HandleGameLost();
         }
+    }
+
+    public void HandleGameWon()
+    {
+        Debug.Log("You won!!!");
+        menuController.SetMenuImage(MenuController.MenuMode.VICTORY);
+        menuController.PauseGame();
+    }
+
+    public void HandleGameLost()
+    {
+        Debug.Log("You died :( epic fail");
+        menuController.SetMenuImage(MenuController.MenuMode.DEFEAT);
+        menuController.PauseGame();
     }
 }

@@ -6,7 +6,7 @@ public class GameManager
 {
 	// a reference to the menuController so that the GameManager can display the
 	// victory/defeat screens
-	private static MenuController menuController = null;
+	private static MenuController menuController = new MenuController();
 
 	// how many (basic) enemies have been killed so far
 	public static uint enemiesKilled = 0;
@@ -33,27 +33,35 @@ public class GameManager
 	{
 		if (menuController == null)
 		{
+            Debug.Log("Getting new menu");
 			GameObject lol = GameObject.FindGameObjectWithTag("MenuCanvas");
-			menuController = GameObject.FindGameObjectWithTag("MenuCanvas").GetComponent<MenuController>();
-		}
-		return menuController;
+            Debug.Log("Got lol");
+            Debug.Log(lol);
+            var stuff = lol.GetComponent<MenuController>();
+            Debug.Log("Got all");
+            
+        }
+        if (menuController == null)
+        {
+            Debug.Log("Still null");
+              
+        }
+        return menuController;
 	}
 
 	public static void HandleGameWon()
 	{
 		Debug.Log("You won!!!");
-		MenuController mc = GetMenuController();
-		mc.SetMenuImage(MenuController.MenuMode.VICTORY);
-		mc.PauseGame();
-	}
+        GameObject player = GetPlayer();
+        player.GetComponent<PlayerScript>().HandleGameWon();
+    }
 
 	public static void HandleGameLost()
 	{
-		Debug.Log("You died :( epic fail");
-		MenuController mc = GetMenuController();
-		mc.SetMenuImage(MenuController.MenuMode.DEFEAT);
-		mc.PauseGame();
-	}
+        GameObject player = GetPlayer();
+        player.GetComponent<PlayerScript>().HandleGameLost();
+
+    }
 
 	public static GameObject GetPlayer()
 	{
