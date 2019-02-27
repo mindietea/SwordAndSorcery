@@ -27,27 +27,6 @@ public class GameManager
 		}
 	}
 
-	// need to use a getter like this so the FindGameObjectWithTag is called
-	// at runtime when MenuCanvas has been loaded
-	private static MenuController GetMenuController()
-	{
-		if (menuController == null)
-		{
-            Debug.Log("Getting new menu");
-			GameObject lol = GameObject.FindGameObjectWithTag("MenuCanvas");
-            Debug.Log("Got lol");
-            Debug.Log(lol);
-            var stuff = lol.GetComponent<MenuController>();
-            Debug.Log("Got all");
-            
-        }
-        if (menuController == null)
-        {
-            Debug.Log("Still null");
-              
-        }
-        return menuController;
-	}
 
 	public static void HandleGameWon()
 	{

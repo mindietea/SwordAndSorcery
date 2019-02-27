@@ -101,6 +101,11 @@ public class ZombieScript : MonoBehaviour
                 GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * walkSpeed);
             }
         }
+        else if(anim.GetCurrentAnimatorStateInfo(0).IsName("attack"))
+        {
+            transform.LookAt(GameManager.GetPlayer().transform);
+            transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, transform.eulerAngles.z);
+        }
     }
      
     // Finds the transform of the zombie which is the furthest away, but within hordeRange and alive
