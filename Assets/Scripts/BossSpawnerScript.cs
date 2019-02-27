@@ -13,13 +13,15 @@ public class BossSpawnerScript : MonoBehaviour
     public GameObject monster;
     bool spawned = false;
 
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-      
+        audioSource = GetComponent<AudioSource>();
     }
 
-	IEnumerator SpawnBoss()
+    IEnumerator SpawnBoss()
 	{
 		GameObject spawn = Instantiate(monster);
         spawn.transform.position = transform.position;
@@ -31,6 +33,8 @@ public class BossSpawnerScript : MonoBehaviour
 
 		yield return new WaitForSeconds(secondsBetweenSpawns + Random.Range(-spawnTimeRandomness, spawnTimeRandomness));
 		Debug.Log("spawned Boss");
+
+        audioSource.Play();
 	}
 
 

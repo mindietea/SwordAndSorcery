@@ -37,7 +37,7 @@ public class VRInputScript : MonoBehaviour
     // for capturing VRTK_ControllerEvents
     void OnEnable()
 	{
-		right.ButtonOneReleased += ControllerEvents_ButtonOneReleased;
+		right.StartMenuPressed += ControllerEvents_StartMenuPressed;
 
 		right.ButtonTwoPressed += ControllerEvents_ButtonTwoPressed;
 		right.ButtonTwoReleased += ControllerEvents_ButtonTwoReleased;
@@ -48,7 +48,7 @@ public class VRInputScript : MonoBehaviour
 
 	void OnDisable() {
 		
-		right.ButtonOneReleased -= ControllerEvents_ButtonOneReleased;
+		right.StartMenuPressed -= ControllerEvents_StartMenuPressed;
 
 		right.ButtonTwoPressed -= ControllerEvents_ButtonTwoPressed;
 		right.ButtonTwoReleased -= ControllerEvents_ButtonTwoReleased;
@@ -102,9 +102,9 @@ public class VRInputScript : MonoBehaviour
     }
 
 
-    private void ControllerEvents_ButtonOneReleased(object sender, ControllerInteractionEventArgs e)
+    private void ControllerEvents_StartMenuPressed(object sender, ControllerInteractionEventArgs e)
 	{
-		Debug.Log("MenuToggle got ButtonOneReleased");
+		Debug.Log("MenuToggle got StartMenuPressed");
 		menuController.TogglePauseGame();
 	}
 
@@ -112,7 +112,10 @@ public class VRInputScript : MonoBehaviour
 		Debug.Log("B pressed");
 		currentReloadTimer = StartNewGameTimer();
 		StartCoroutine(currentReloadTimer);
-	}
+
+        Debug.Log("MenuToggle");
+        menuController.TogglePauseGame();
+    }
 
 	private void ControllerEvents_ButtonTwoReleased(object sender, ControllerInteractionEventArgs e) {
 		Debug.Log("B released");
