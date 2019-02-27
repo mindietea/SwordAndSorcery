@@ -918,7 +918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &829280736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 829280735}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ad4cced590536a9448e64fb0d7397f27, type: 3}
   m_Name: 
@@ -2218,6 +2218,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3966083639317146453, guid: a4f5f704d466e064ea6518c9e7e11a8f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966083639317146450, guid: a4f5f704d466e064ea6518c9e7e11a8f,
+        type: 3}
+      propertyPath: maximumSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966083639317146451, guid: a4f5f704d466e064ea6518c9e7e11a8f,
+        type: 3}
+      propertyPath: maximumSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966083640955608851, guid: a4f5f704d466e064ea6518c9e7e11a8f,
+        type: 3}
+      propertyPath: maximumSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966083640955608852, guid: a4f5f704d466e064ea6518c9e7e11a8f,
+        type: 3}
+      propertyPath: maximumSpeed
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4f5f704d466e064ea6518c9e7e11a8f, type: 3}
 --- !u!114 &1225310920 stripped
@@ -3245,7 +3270,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881944388}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8bccb147746f66f4b8228b6dd01f2347, type: 3}
   m_Name: 
@@ -3266,7 +3291,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3619,6 +3644,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 814806490}
     m_Modifications:
+    - target: {fileID: 4000011921798948, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.73
+      objectReference: {fileID: 0}
     - target: {fileID: 114000010315091656, guid: 41c0760bd81dd084283814f0c432b466,
         type: 3}
       propertyPath: actualBoundaries
@@ -3766,5 +3795,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 114000013937090930, guid: 41c0760bd81dd084283814f0c432b466,
+        type: 3}
+      propertyPath: vrcam
+      value: 
+      objectReference: {fileID: 2112525927}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41c0760bd81dd084283814f0c432b466, type: 3}
+--- !u!114 &2112525927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114085069478805808, guid: 41c0760bd81dd084283814f0c432b466,
+    type: 3}
+  m_PrefabInstance: {fileID: 2112525926}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
